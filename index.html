@@ -1,0 +1,3902 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第1章 信息化发展 - 知识点可视化</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow-x: hidden; /* 防止水平溢出 */
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        .header {
+            text-align: center;
+            background: white;
+            padding: 30px 20px; /* 减少内边距 */
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden; /* 防止内容溢出 */
+        }
+        
+        .header h1 {
+            color: #2c3e50;
+            font-size: clamp(1.8em, 4vw, 2.8em); /* 响应式字体 */
+            margin-bottom: 15px;
+            font-weight: 700;
+            word-wrap: break-word; /* 自动换行 */
+        }
+        
+        .header p {
+            color: #7f8c8d;
+            font-size: clamp(1em, 2vw, 1.2em); /* 响应式字体 */
+        }
+        
+        .section {
+            background: white;
+            margin-bottom: 40px;
+            border-radius: 20px;
+            padding: clamp(20px, 4vw, 40px); /* 响应式内边距 */
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            overflow: hidden; /* 防止内容溢出 */
+            word-wrap: break-word; /* 自动换行 */
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            font-size: clamp(1.6em, 3.5vw, 2.2em); /* 响应式字体 */
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+            word-wrap: break-word; /* 自动换行 */
+        }
+        
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #3498db, #2980b9);
+            border-radius: 2px;
+        }
+        
+        .knowledge-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-left: 6px solid #3498db;
+            position: relative;
+        }
+        
+        .knowledge-card h3 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .knowledge-card h3::before {
+            content: attr(data-icon);
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            flex-shrink: 0;
+        }
+        
+        .simple-explanation {
+            background: #e8f6f3;
+            border: 2px solid #16a085;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .simple-explanation::before {
+            content: '💡';
+            position: absolute;
+            top: -12px;
+            left: 15px;
+            background: #16a085;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+        
+        .simple-explanation h4 {
+            color: #16a085;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+        
+        .simple-explanation p {
+            color: #2c3e50;
+            font-size: 1.05em;
+            line-height: 1.7;
+        }
+        
+        .analogy-box {
+            background: #fff3cd;
+            border: 2px solid #f39c12;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            position: relative;
+        }
+        
+        .analogy-box::before {
+            content: '🌟';
+            position: absolute;
+            top: -12px;
+            left: 15px;
+            background: #f39c12;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+        
+        .analogy-box h4 {
+            color: #f39c12;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+        
+        .analogy-box p {
+            color: #856404;
+            font-size: 1.05em;
+            line-height: 1.7;
+        }
+        
+        .visual-diagram {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 25px 0;
+            text-align: center;
+        }
+        
+        .diagram-title {
+            color: #2c3e50;
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+        
+
+        
+        /* 知识地图 */
+        .knowledge-map {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .map-title {
+            color: #2c3e50;
+            font-size: 2em;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .map-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #e74c3c, #c0392b);
+            border-radius: 2px;
+        }
+        
+        .knowledge-network {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 500px;
+            position: relative;
+        }
+        
+        .network-center {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            font-weight: 700;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.3);
+            position: relative;
+            z-index: 10;
+        }
+        
+        .network-node {
+            position: absolute;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9em;
+            font-weight: 600;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .network-node:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(52, 152, 219, 0.4);
+        }
+        
+        .network-node::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 70px;
+            background: linear-gradient(135deg, #bdc3c7, #95a5a6);
+            transform-origin: bottom center;
+            z-index: -1;
+        }
+        
+        .network-node:nth-child(2) {
+            top: -80px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .network-node:nth-child(2)::before {
+            bottom: -70px;
+            transform: rotate(0deg);
+        }
+        
+        .network-node:nth-child(3) {
+            top: -40px;
+            right: -120px;
+            transform: translateY(-50%);
+        }
+        
+        .network-node:nth-child(3)::before {
+            bottom: -35px;
+            left: -55px;
+            transform: rotate(-45deg);
+        }
+        
+        .network-node:nth-child(4) {
+            bottom: -40px;
+            right: -120px;
+            transform: translateY(50%);
+        }
+        
+        .network-node:nth-child(4)::before {
+            top: -35px;
+            left: -55px;
+            transform: rotate(45deg);
+        }
+        
+        .network-node:nth-child(5) {
+            bottom: -80px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .network-node:nth-child(5)::before {
+            top: -70px;
+            transform: rotate(180deg);
+        }
+        
+        .network-node:nth-child(6) {
+            bottom: -40px;
+            left: -120px;
+            transform: translateY(50%);
+        }
+        
+        .network-node:nth-child(6)::before {
+            top: -35px;
+            right: -55px;
+            transform: rotate(-45deg);
+        }
+        
+        .network-node:nth-child(7) {
+            top: -40px;
+            left: -120px;
+            transform: translateY(-50%);
+        }
+        
+        .network-node:nth-child(7)::before {
+            bottom: -35px;
+            right: -55px;
+            transform: rotate(45deg);
+        }
+        
+        /* 学习路径 */
+        .learning-path {
+            background: linear-gradient(135deg, #fff, #f8f9fa);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .path-title {
+            color: #2c3e50;
+            font-size: 1.8em;
+            font-weight: 600;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .path-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #9b59b6, #8e44ad);
+            border-radius: 2px;
+        }
+        
+        .path-flow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .path-step {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            min-width: 150px;
+            position: relative;
+            border: 3px solid #ecf0f1;
+            transition: all 0.3s ease;
+        }
+        
+        .path-step:hover {
+            border-color: #9b59b6;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(155, 89, 182, 0.2);
+        }
+        
+        .path-step.current {
+            border-color: #f39c12;
+            background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+        }
+        
+        .path-step.completed {
+            border-color: #27ae60;
+            background: linear-gradient(135deg, #d4edda, #c3e6cb);
+        }
+        
+        .path-step::before {
+            content: attr(data-step);
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .path-step.current::before {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+        }
+        
+        .path-step.completed::before {
+            background: linear-gradient(135deg, #27ae60, #229954);
+            content: '✓';
+        }
+        
+        .path-step h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+        
+        .path-step p {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+        
+        .path-arrow {
+            font-size: 1.5em;
+            color: #9b59b6;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        /* 重点概念标识 */
+        .key-concept {
+            position: relative;
+        }
+        
+        .key-concept::after {
+            content: '⭐';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.2em;
+            animation: twinkle 2s infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        /* 难点提示 */
+        .difficulty-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-left: 10px;
+        }
+        
+        .difficulty-star {
+            color: #f39c12;
+            font-size: 0.8em;
+        }
+        
+        .difficulty-easy .difficulty-star:nth-child(1) { opacity: 1; }
+        .difficulty-easy .difficulty-star:nth-child(n+2) { opacity: 0.3; }
+        
+        .difficulty-medium .difficulty-star:nth-child(-n+2) { opacity: 1; }
+        .difficulty-medium .difficulty-star:nth-child(n+3) { opacity: 0.3; }
+        
+        .difficulty-hard .difficulty-star { opacity: 1; }
+        
+        /* 知识点关联 */
+        .knowledge-relation {
+            background: linear-gradient(135deg, #e8f4f8, #d1ecf1);
+            border: 2px solid #17a2b8;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            position: relative;
+        }
+        
+        .knowledge-relation::before {
+            content: '🔗';
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: #17a2b8;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+        
+        .knowledge-relation h4 {
+            color: #17a2b8;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+        
+        .knowledge-relation ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .knowledge-relation li {
+            background: white;
+            padding: 10px 15px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border-left: 3px solid #17a2b8;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .knowledge-relation li:hover {
+            background: #f8f9fa;
+            transform: translateX(5px);
+        }
+        
+        .knowledge-relation li::before {
+            content: '→';
+            color: #17a2b8;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        /* 信息定义可视化 */
+        .info-definition {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .info-before, .info-after {
+            background: #fff;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            min-width: 200px;
+            text-align: center;
+        }
+        
+        .info-before {
+            border-left: 5px solid #e74c3c;
+        }
+        
+        .info-after {
+            border-left: 5px solid #27ae60;
+        }
+        
+        .info-arrow {
+            font-size: 2em;
+            color: #3498db;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .info-before h4 {
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+        
+        .info-after h4 {
+            color: #27ae60;
+            margin-bottom: 10px;
+        }
+        
+        /* 特征网格 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .feature-card {
+            background: #fff;
+            border-radius: 15px;
+            padding: 25px;
+            border-left: 5px solid #3498db;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.2);
+        }
+        
+        .feature-card::before {
+            content: attr(data-number);
+            position: absolute;
+            top: -12px;
+            left: 15px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .feature-card h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+        
+        .feature-card p {
+            color: #7f8c8d;
+            line-height: 1.6;
+        }
+        
+        .feature-card .example {
+            background: #e8f6f3;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #16a085;
+        }
+        
+        /* 流程图 */
+        .process-flow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .process-step {
+            background: #fff;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            min-width: 150px;
+            position: relative;
+        }
+        
+        .process-step::before {
+            content: attr(data-step);
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .process-step h4 {
+            color: #f39c12;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+        
+        .process-step p {
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        
+        .process-arrow {
+            font-size: 1.5em;
+            color: #f39c12;
+        }
+        
+        /* 金字塔图 */
+        .pyramid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .pyramid-level {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .pyramid-block {
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-align: center;
+            min-width: 120px;
+            font-size: 0.95em;
+        }
+        
+        .pyramid-level:nth-child(1) .pyramid-block {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            font-size: 1.1em;
+        }
+        
+        .pyramid-level:nth-child(2) .pyramid-block {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+        }
+        
+        .pyramid-level:nth-child(3) .pyramid-block {
+            background: linear-gradient(135deg, #27ae60, #229954);
+        }
+        
+        /* 圆形关系图 */
+        .circular-relation {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            margin: 30px auto;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+        
+        .center-concept {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            text-align: center;
+            font-size: 0.9em;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .relation-item {
+            position: absolute;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            text-align: center;
+            font-size: 0.8em;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+        
+        .relation-item:nth-child(2) { top: 30px; left: 50%; transform: translateX(-50%); }
+        .relation-item:nth-child(3) { top: 90px; right: 30px; }
+        .relation-item:nth-child(4) { top: 50%; right: 10px; transform: translateY(-50%); }
+        .relation-item:nth-child(5) { bottom: 90px; right: 30px; }
+        .relation-item:nth-child(6) { bottom: 30px; left: 50%; transform: translateX(-50%); }
+        .relation-item:nth-child(7) { bottom: 90px; left: 30px; }
+        .relation-item:nth-child(8) { top: 50%; left: 10px; transform: translateY(-50%); }
+        .relation-item:nth-child(9) { top: 90px; left: 30px; }
+        
+        .relation-item:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.3);
+        }
+        
+        /* 蜂窝状布局 */
+        .honeycomb-layout {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .honeycomb-item {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 3px solid #ecf0f1;
+            transition: all 0.3s ease;
+            text-align: center;
+            min-width: 200px;
+            max-width: 240px;
+            position: relative;
+        }
+        
+        .honeycomb-item:hover {
+            transform: translateY(-5px);
+            border-color: #3498db;
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.2);
+        }
+        
+        .honeycomb-item::before {
+            content: attr(data-icon);
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+        
+        .honeycomb-item h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+        
+        .honeycomb-item p {
+            color: #7f8c8d;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+        
+        .honeycomb-item .example {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-size: 0.85em;
+            color: #16a085;
+        }
+        
+        /* 阶梯式布局 */
+        .step-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin: 30px 0;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .step-item {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-left: 6px solid #3498db;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .step-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.2);
+        }
+        
+        .step-item:nth-child(even) {
+            flex-direction: row-reverse;
+            border-left: none;
+            border-right: 6px solid #e74c3c;
+        }
+        
+        .step-item:nth-child(even):hover {
+            transform: translateX(-10px);
+        }
+        
+        .step-number {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .step-item:nth-child(even) .step-number {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        .step-content h4 {
+            color: #2c3e50;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .step-content p {
+            color: #7f8c8d;
+            line-height: 1.6;
+            font-size: 1em;
+        }
+        
+        .step-content .detail {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #16a085;
+        }
+        
+        /* 六边形网格 */
+        .hexagon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hexagon-item {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 3px solid #ecf0f1;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .hexagon-item:hover {
+            transform: translateY(-5px);
+            border-color: #3498db;
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.2);
+        }
+        
+        .hexagon-item::before {
+            content: attr(data-number);
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .hexagon-item h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            font-weight: 600;
+        }
+        
+        .hexagon-item p {
+            color: #7f8c8d;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+        
+        .hexagon-item .example {
+            background: #e8f6f3;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-size: 0.85em;
+            color: #16a085;
+        }
+        
+        /* 对比表格 */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .comparison-table th {
+            background: linear-gradient(135deg, #34495e, #2c3e50);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .comparison-table td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .comparison-table tr:hover {
+            background: #e8f6f3;
+        }
+        
+        /* 等级展示 */
+        .level-display {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .level-item {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            min-width: 120px;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .level-item::before {
+            content: attr(data-level);
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            color: #3498db;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            border: 2px solid #3498db;
+        }
+        
+        .level-item h4 {
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        
+        .level-item p {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        
+        /* 记忆工具 */
+        .memory-tool {
+            background: linear-gradient(135deg, #d4edda, #c3e6cb);
+            border: 2px solid #28a745;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .memory-tool::before {
+            content: '🧠';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #28a745;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+        
+        .memory-tool h4 {
+            color: #28a745;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+        
+        .memory-tool .formula {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #155724;
+            line-height: 1.8;
+        }
+        
+        /* 思考题 */
+        .think-question {
+            background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+            border: 2px solid #f39c12;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .think-question::before {
+            content: '🤔';
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: #f39c12;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+        
+        .think-question:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(243, 156, 18, 0.3);
+        }
+        
+        .think-question h4 {
+            color: #f39c12;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+        
+        .think-answer {
+            display: none;
+            background: rgba(243, 156, 18, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 15px;
+            border-left: 4px solid #f39c12;
+        }
+        
+        .think-question.active .think-answer {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .think-answer p {
+            color: #856404;
+            line-height: 1.7;
+        }
+        
+        /* 学习建议 */
+        .study-tips {
+            background: linear-gradient(135deg, #e8f4f8, #d1ecf1);
+            border: 2px solid #17a2b8;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            position: relative;
+        }
+        
+        .study-tips::before {
+            content: '📝';
+            position: absolute;
+            top: -15px;
+            left: 30px;
+            background: #17a2b8;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+        
+        .study-tips h3 {
+            color: #17a2b8;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+            font-weight: 600;
+        }
+        
+        .study-tips ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .study-tips li {
+            background: #fff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            border-left: 4px solid #17a2b8;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .study-tips li::before {
+            content: '✓';
+            position: absolute;
+            left: -12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #17a2b8;
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .study-tips li {
+            margin-left: 15px;
+        }
+        
+        /* 增强的交互效果 */
+        .honeycomb-item:hover .example {
+            transform: scale(1.02);
+            box-shadow: 0 2px 10px rgba(22, 160, 133, 0.2);
+        }
+        
+        .step-item:hover .detail {
+            background: #e8f6f3;
+            border-left: 4px solid #16a085;
+        }
+        
+        .hexagon-item:hover .example {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+        }
+        
+        /* 加载动画 */
+        .honeycomb-item {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        .honeycomb-item:nth-child(1) { animation-delay: 0.1s; }
+        .honeycomb-item:nth-child(2) { animation-delay: 0.2s; }
+        .honeycomb-item:nth-child(3) { animation-delay: 0.3s; }
+        .honeycomb-item:nth-child(4) { animation-delay: 0.4s; }
+        .honeycomb-item:nth-child(5) { animation-delay: 0.5s; }
+        .honeycomb-item:nth-child(6) { animation-delay: 0.6s; }
+        .honeycomb-item:nth-child(7) { animation-delay: 0.7s; }
+        .honeycomb-item:nth-child(8) { animation-delay: 0.8s; }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .step-item {
+            animation: slideIn 0.8s ease-out;
+        }
+        
+        .step-item:nth-child(1) { animation-delay: 0.1s; }
+        .step-item:nth-child(2) { animation-delay: 0.3s; }
+        .step-item:nth-child(3) { animation-delay: 0.5s; }
+        .step-item:nth-child(4) { animation-delay: 0.7s; }
+        .step-item:nth-child(5) { animation-delay: 0.9s; }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .step-item:nth-child(even) {
+            animation-name: slideInRight;
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /* 防溢出样式 */
+        * {
+            word-wrap: break-word;
+            word-break: break-word;
+            hyphens: auto;
+        }
+        
+        .knowledge-card h3, 
+        .section h2, 
+        .header h1 {
+            overflow-wrap: break-word;
+            word-break: break-word;
+        }
+        
+        .honeycomb-item, 
+        .hexagon-item, 
+        .step-item {
+            overflow: hidden;
+            word-wrap: break-word;
+        }
+        
+        .example, 
+        .detail {
+            overflow-wrap: break-word;
+            word-break: break-word;
+        }
+        
+        /* 响应式设计优化 */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .honeycomb-layout {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+            
+            .hexagon-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .info-definition {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .honeycomb-layout {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .hexagon-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .process-flow {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .process-arrow {
+                transform: rotate(90deg);
+            }
+            
+            .level-display {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .step-layout {
+                max-width: 100%;
+            }
+            
+            .step-item {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+            
+            .step-item:nth-child(even) {
+                flex-direction: column;
+                border-left: 6px solid #3498db;
+                border-right: none;
+            }
+            
+            .step-item:nth-child(even):hover {
+                transform: translateY(-5px);
+            }
+            
+            .network-center {
+                width: 120px;
+                height: 120px;
+                font-size: 1em;
+            }
+            
+            .network-node {
+                width: 80px;
+                height: 80px;
+                font-size: 0.8em;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header {
+                padding: 20px 15px;
+            }
+            
+            .header h1 {
+                font-size: clamp(1.5em, 6vw, 2em);
+                line-height: 1.2;
+            }
+            
+            .section {
+                padding: clamp(15px, 3vw, 25px);
+                margin-bottom: 25px;
+            }
+            
+            .section h2 {
+                font-size: clamp(1.4em, 5vw, 1.8em);
+                margin-bottom: 20px;
+            }
+            
+            .knowledge-card {
+                padding: clamp(15px, 3vw, 25px);
+                margin-bottom: 20px;
+            }
+            
+            .knowledge-card h3 {
+                font-size: clamp(1.2em, 4vw, 1.5em);
+                margin-bottom: 15px;
+            }
+            
+            .honeycomb-item, 
+            .hexagon-item {
+                min-width: 100%;
+                max-width: 100%;
+                padding: 20px;
+            }
+            
+            .step-content h4 {
+                font-size: clamp(1em, 3vw, 1.2em);
+            }
+            
+            .step-number {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2em;
+            }
+            
+            .circular-relation {
+                width: 300px;
+                height: 300px;
+            }
+            
+            .center-concept {
+                width: 100px;
+                height: 100px;
+                font-size: 0.8em;
+            }
+            
+            .relation-item {
+                width: 60px;
+                height: 60px;
+                font-size: 0.7em;
+            }
+        }
+        
+        @media (max-width: 320px) {
+            .header h1 {
+                font-size: 1.3em;
+            }
+            
+            .section h2 {
+                font-size: 1.3em;
+            }
+            
+            .knowledge-card h3 {
+                font-size: 1.1em;
+            }
+            
+            .honeycomb-item, 
+            .hexagon-item {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>第1章 信息化发展 - 知识点可视化</h1>
+            <p>系统集成项目管理工程师 • 逻辑清晰的学习笔记</p>
+        </div>
+        
+
+        
+        <!-- 知识地图 -->
+        <div class="knowledge-map">
+            <h2 class="map-title">🗺️ 知识地图</h2>
+            <div class="knowledge-network">
+                <div class="network-center">
+                    信息化<br>发展
+                </div>
+                <div class="network-node" onclick="showNodeDetails('信息理论')">
+                    信息与<br>信息化
+                </div>
+                <div class="network-node" onclick="showNodeDetails('新基建')">
+                    新型基础<br>设施
+                </div>
+                <div class="network-node" onclick="showNodeDetails('产业现代化')">
+                    产业<br>现代化
+                </div>
+                <div class="network-node" onclick="showNodeDetails('数字中国')">
+                    数字<br>中国
+                </div>
+                <div class="network-node" onclick="showNodeDetails('数字化转型')">
+                    数字化<br>转型
+                </div>
+                <div class="network-node" onclick="showNodeDetails('元宇宙')">
+                    元宇宙<br>应用
+                </div>
+            </div>
+        </div>
+        
+        <!-- 学习路径 -->
+        <div class="learning-path">
+            <h3 class="path-title">🎯 建议学习路径</h3>
+            <div class="path-flow">
+                <div class="path-step completed" data-step="1">
+                    <h4>基础理论</h4>
+                    <p>信息定义与特征</p>
+                </div>
+                <div class="path-arrow">→</div>
+                <div class="path-step current" data-step="2">
+                    <h4>技术架构</h4>
+                    <p>新基建与工业互联网</p>
+                </div>
+                <div class="path-arrow">→</div>
+                <div class="path-step" data-step="3">
+                    <h4>应用实践</h4>
+                    <p>产业现代化转型</p>
+                </div>
+                <div class="path-arrow">→</div>
+                <div class="path-step" data-step="4">
+                    <h4>国家战略</h4>
+                    <p>数字中国建设</p>
+                </div>
+                <div class="path-arrow">→</div>
+                <div class="path-step" data-step="5">
+                    <h4>前沿趋势</h4>
+                    <p>数字化转型与元宇宙</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 1.1 信息与信息化 -->
+        <div class="section" id="section-1-1">
+            <h2>1.1 信息与信息化</h2>
+            
+            <div class="knowledge-card key-concept">
+                <h3 data-icon="📊">信息的定义
+                    <span class="difficulty-indicator difficulty-medium">
+                        <span class="difficulty-star">★</span>
+                        <span class="difficulty-star">★</span>
+                        <span class="difficulty-star">★</span>
+                    </span>
+                </h3>
+                
+                <div class="simple-explanation">
+                    <h4>简单理解</h4>
+                    <p>信息就是能够减少我们不确定性的东西。香农把这个概念用数学公式表达出来，让信息可以被测量和计算。</p>
+                </div>
+                
+                <div class="analogy-box">
+                    <h4>生活比喻</h4>
+                    <p>就像猜硬币游戏：抛硬币前你不知道结果（不确定性100%），当告诉你结果是正面时，不确定性变为0%。这个"正面"就是信息，它消除了你的不确定性。</p>
+                </div>
+                
+                <div class="visual-diagram">
+                    <div class="diagram-title">信息的本质：消除不确定性</div>
+                    <div class="info-definition">
+                        <div class="info-before">
+                            <h4>信息前</h4>
+                            <p>🤔 不知道结果<br>充满疑惑<br>无法决策</p>
+                        </div>
+                        <div class="info-arrow">→</div>
+                        <div class="info-after">
+                            <h4>信息后</h4>
+                            <p>😊 清楚结果<br>消除疑惑<br>可以决策</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="memory-tool">
+                    <h4>记忆公式</h4>
+                    <div class="formula">香农信息 = 消除不确定性<br>单位：比特（bit）<br>特点：负熵（有序化）</div>
+                </div>
+                
+                <div class="knowledge-relation">
+                    <h4>知识点关联</h4>
+                    <ul>
+                        <li onclick="scrollToKnowledge('信息特征')">信息的11个特征</li>
+                        <li onclick="scrollToKnowledge('信息质量')">信息的7个质量属性</li>
+                        <li onclick="scrollToKnowledge('信息传输')">信息传输模型</li>
+                        <li onclick="scrollToKnowledge('信息系统')">信息系统性质</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="knowledge-card key-concept">
+                <h3 data-icon="🔍">信息的11个特征
+                    <span class="difficulty-indicator difficulty-hard">
+                        <span class="difficulty-star">★</span>
+                        <span class="difficulty-star">★</span>
+                        <span class="difficulty-star">★</span>
+                    </span>
+                </h3>
+                
+                <div class="simple-explanation">
+                    <h4>简单理解</h4>
+                    <p>信息有11个重要特征，可以分为三大类：本质特征（信息是什么）、行为特征（信息如何表现）、结构特征（信息如何组织）。</p>
+                </div>
+                
+                <div class="analogy-box">
+                    <h4>生活比喻</h4>
+                    <p>信息就像水：客观存在（本质），可以流动传递（行为），可以装在不同容器里（结构）。</p>
+                </div>
+                
+                <div class="visual-diagram">
+                    <div class="diagram-title">信息特征的三大类别</div>
+                    <div class="step-layout">
+                        <div class="step-item">
+                            <div class="step-number">本质</div>
+                            <div class="step-content">
+                                <h4>本质特征（信息是什么）</h4>
+                                <p>描述信息的根本属性，是信息区别于物质和能量的基本特征。</p>
+                                <div class="detail">
+                                    <strong>客观性</strong>：信息客观存在，不依赖主观意识<br>
+                                    <strong>普遍性</strong>：信息无处不在，存在于一切事物中<br>
+                                    <strong>无限性</strong>：信息资源可以无限开发利用
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">行为</div>
+                            <div class="step-content">
+                                <h4>行为特征（信息如何表现）</h4>
+                                <p>描述信息在时间和空间中的运动变化规律。</p>
+                                <div class="detail">
+                                    <strong>动态性</strong>：信息随时间变化，具有时效性<br>
+                                    <strong>相对性</strong>：信息的价值因人因时而异<br>
+                                    <strong>依附性</strong>：信息必须依附于载体存在<br>
+                                    <strong>变换性</strong>：信息可以在不同载体间转换<br>
+                                    <strong>传递性</strong>：信息可以跨时空传播
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">结构</div>
+                            <div class="step-content">
+                                <h4>结构特征（信息如何组织）</h4>
+                                <p>描述信息的内部组织结构和相互关系。</p>
+                                <div class="detail">
+                                    <strong>层次性</strong>：信息具有不同的层次结构<br>
+                                    <strong>系统性</strong>：信息各要素相互关联形成系统<br>
+                                    <strong>转化性</strong>：信息可以转化为知识、能力等
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hexagon-grid">
+                    <div class="hexagon-item" data-number="1">
+                        <h4>客观性</h4>
+                        <p>信息是客观存在的，不因人的主观意识而改变</p>
+                        <div class="example">例子：树倒下的声音，无论有没有人听到都客观存在</div>
+                    </div>
+                    
+                    <div class="hexagon-item" data-number="2">
+                        <h4>普遍性</h4>
+                        <p>信息无处不在，存在于一切事物和现象中</p>
+                        <div class="example">例子：从DNA到股票价格，从天气到心情，都包含信息</div>
+                    </div>
+                    
+                    <div class="hexagon-item" data-number="3">
+                        <h4>无限性</h4>
+                        <p>信息资源可以无限开发，永远用不完</p>
+                        <div class="example">例子：知识共享越多价值越大，不像煤炭会用完</div>
+                    </div>
+                    
+                    <div class="hexagon-item" data-number="4">
+                        <h4>动态性</h4>
+                        <p>信息随时间变化，具有时效性</p>
+                        <div class="example">例子：今天的天气预报，明天就不准了</div>
+                    </div>
+                    
+                    <div class="hexagon-item" data-number="5">
+                        <h4>相对性</h4>
+                        <p>信息的价值因人而异，因时而变</p>
+                        <div class="example">例子：股票信息对投资者很有用，对小学生没用</div>
+                    </div>
+                    
+                    <div class="hexagon-item" data-number="6">
+                        <h4>依附性</h4>
+                        <p>信息不能独立存在，必须依附于载体</p>
+                        <div class="example">例子：文字要纸张，音乐要声波，照片要存储卡</div>
+                    </div>
+                    
+                    <div class="hexagon-item" data-number="7">
+                        <h4>变换性</h4>
+                        <p>信息可以在不同载体间转换</p>
+                        <div class="example">例子：语音→文字→图像→数字，内容不变形式变</div>
+                    </div>
+                    
+                    <div class="hexagon-item" data-number="8">
+                        <h4>传递性</h4>
+                        <p>信息可以在时间和空间上传播</p>
+                        <div class="example">例子：古代烽火台，现代互联网，都是信息传递</div>
+                    </div>
+                    
+                    <div class="hexagon-item" data-number="9">
+                        <h4>层次性</h4>
+                        <p>信息具有不同的层次结构</p>
+                        <div class="example">例子：比特→字节→文件→数据库，层层递进</div>
+                    </div>
+                    
+                    <div class="hexagon-item" data-number="10">
+                        <h4>系统性</h4>
+                        <p>信息各要素相互关联，形成系统</p>
+                        <div class="example">例子：单个数据没用，组合起来就是知识</div>
+                    </div>
+                    
+                    <div class="hexagon-item" data-number="11">
+                        <h4>转化性</h4>
+                        <p>信息可以转化为知识、能力等</p>
+                        <div class="example">例子：学习就是把信息转化为知识的过程</div>
+                    </div>
+                </div>
+                
+                <div class="memory-tool">
+                    <h4>记忆公式</h4>
+                    <div class="formula">客普无（本质）+ 动相依变传（行为）+ 层系转（结构）= 11特征</div>
+                </div>
+            </div>
+            
+            <div class="knowledge-card">
+                <h3 data-icon="⚡">信息的7个质量属性</h3>
+                
+                <div class="simple-explanation">
+                    <h4>简单理解</h4>
+                    <p>信息质量就像产品质量，需要从多个角度评价：准不准（精确性）、全不全（完整性）、信不信（可靠性）、快不快（及时性）、值不值（经济性）、懂不懂（简明性）、安不安全（安全性）。</p>
+                </div>
+                
+                <div class="analogy-box">
+                    <h4>生活比喻</h4>
+                    <p>信息质量就像选择餐厅：食物要好吃（精确）、菜品要齐全（完整）、评价要可信（可靠）、出菜要快（及时）、价格要合理（经济）、菜单要简单（简明）、环境要安全（安全）。</p>
+                </div>
+                
+                <div class="visual-diagram">
+                    <div class="diagram-title">信息质量的7个维度</div>
+                    <div class="honeycomb-layout">
+                        <div class="honeycomb-item" data-icon="🎯">
+                            <h4>精确性</h4>
+                            <p>信息内容准确无误，没有错误</p>
+                            <div class="example">例如：天气预报的准确率，银行账户余额的精确度</div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="📋">
+                            <h4>完整性</h4>
+                            <p>信息内容完备齐全，没有遗漏</p>
+                            <div class="example">例如：产品说明书要包含所有功能介绍</div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="🔐">
+                            <h4>可靠性</h4>
+                            <p>信息来源可信，数据真实可靠</p>
+                            <div class="example">例如：官方发布的政策文件比小道消息可靠</div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="⏰">
+                            <h4>及时性</h4>
+                            <p>信息获取和传递要及时</p>
+                            <div class="example">例如：股市信息延迟几秒钟就可能影响投资决策</div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="💰">
+                            <h4>经济性</h4>
+                            <p>获取信息的成本要合理</p>
+                            <div class="example">例如：免费的天气预报比付费的更有经济性</div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="📝">
+                            <h4>简明性</h4>
+                            <p>信息表达要简洁明了，易于理解</p>
+                            <div class="example">例如：交通标志设计简洁明了，一目了然</div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="🔒">
+                            <h4>安全性</h4>
+                            <p>信息存储和传输要安全可靠</p>
+                            <div class="example">例如：银行交易信息需要加密保护</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="memory-tool">
+                    <h4>记忆公式</h4>
+                    <div class="formula">精完可及经，简明又安全</div>
+                </div>
+            </div>
+            
+            <div class="knowledge-card">
+                <h3 data-icon="📡">信息传输模型</h3>
+                
+                <div class="simple-explanation">
+                    <h4>简单理解</h4>
+                    <p>信息传输就像寄快递：发件人→打包→运输→拆包→收件人。每个环节都很重要，任何一个环节出问题都会影响信息传递。</p>
+                </div>
+                
+                <div class="analogy-box">
+                    <h4>生活比喻</h4>
+                    <p>打电话过程：你说话（信息源）→话筒转换成电信号（编码）→电话线传输（信道）→对方话筒转换成声音（解码）→对方听到（信息宿）。</p>
+                </div>
+                
+                <div class="visual-diagram">
+                    <div class="diagram-title">信息传输的5个步骤</div>
+                    <div class="process-flow">
+                        <div class="process-step" data-step="1">
+                            <h4>信息源</h4>
+                            <p>产生信息的地方</p>
+                        </div>
+                        <div class="process-arrow">→</div>
+                        <div class="process-step" data-step="2">
+                            <h4>编码器</h4>
+                            <p>把信息转换成信号</p>
+                        </div>
+                        <div class="process-arrow">→</div>
+                        <div class="process-step" data-step="3">
+                            <h4>信道</h4>
+                            <p>传输信息的通道</p>
+                        </div>
+                        <div class="process-arrow">→</div>
+                        <div class="process-step" data-step="4">
+                            <h4>解码器</h4>
+                            <p>把信号还原成信息</p>
+                        </div>
+                        <div class="process-arrow">→</div>
+                        <div class="process-step" data-step="5">
+                            <h4>信息宿</h4>
+                            <p>接收信息的地方</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="memory-tool">
+                    <h4>记忆公式</h4>
+                    <div class="formula">源→编→道→解→宿（信息传输五步曲）</div>
+                </div>
+            </div>
+            
+            <div class="knowledge-card">
+                <h3 data-icon="⚙️">系统的9个特性</h3>
+                
+                <div class="simple-explanation">
+                    <h4>简单理解</h4>
+                    <p>系统是由相互作用、相互依赖的要素组成的具有特定功能的有机整体。系统具有9个基本特性，体现了系统的本质属性。</p>
+                </div>
+                
+                <div class="analogy-box">
+                    <h4>生活比喻</h4>
+                    <p>系统就像一个足球队：整体性（团队协作）、目的性（赢球目标）、层次性（教练-队长-队员）、相关性（位置配合）、环境适应性（适应不同对手）、开放性（与外界交流）、突变性（质变产生）、自组织性（自我调整）、相似性（共同特征）。</p>
+                </div>
+                
+                <div class="visual-diagram">
+                    <div class="diagram-title">系统的9个基本特性</div>
+                    <div class="hexagon-grid">
+                        <div class="hexagon-item" data-number="1">
+                            <h4>整体性</h4>
+                            <p>系统是一个有机整体，不是各部分的简单相加</p>
+                            <div class="example">例如：1+1>2，团队效应大于个人能力之和</div>
+                        </div>
+                        
+                        <div class="hexagon-item" data-number="2">
+                            <h4>目的性</h4>
+                            <p>系统的建立和运行都有明确的目标</p>
+                            <div class="example">例如：企业系统的目的是盈利，教育系统的目的是培养人才</div>
+                        </div>
+                        
+                        <div class="hexagon-item" data-number="3">
+                            <h4>层次性</h4>
+                            <p>系统具有层次结构，每个层次有不同的功能</p>
+                            <div class="example">例如：企业有董事会、管理层、执行层的层次结构</div>
+                        </div>
+                        
+                        <div class="hexagon-item" data-number="4">
+                            <h4>相关性</h4>
+                            <p>系统各要素之间相互关联、相互影响</p>
+                            <div class="example">例如：生态系统中植物、动物、环境相互影响</div>
+                        </div>
+                        
+                        <div class="hexagon-item" data-number="5">
+                            <h4>环境适应性</h4>
+                            <p>系统能够适应外部环境的变化</p>
+                            <div class="example">例如：企业根据市场变化调整经营策略</div>
+                        </div>
+                        
+                        <div class="hexagon-item" data-number="6">
+                            <h4>开放性</h4>
+                            <p>系统与外界环境进行物质、能量、信息交换</p>
+                            <div class="example">例如：人体与外界进行氧气、食物、信息的交换</div>
+                        </div>
+                        
+                        <div class="hexagon-item" data-number="7">
+                            <h4>突变性</h4>
+                            <p>系统在量变积累到一定程度时会发生质变</p>
+                            <div class="example">例如：水温达到100度时从液态突变为气态</div>
+                        </div>
+                        
+                        <div class="hexagon-item" data-number="8">
+                            <h4>自组织性</h4>
+                            <p>系统具有自我调节、自我组织的能力</p>
+                            <div class="example">例如：市场经济的自动调节机制</div>
+                        </div>
+                        
+                        <div class="hexagon-item" data-number="9">
+                            <h4>相似性</h4>
+                            <p>不同系统在结构和功能上存在相似性</p>
+                            <div class="example">例如：企业管理和政府管理有相似的组织结构</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="memory-tool">
+                    <h4>记忆公式</h4>
+                    <div class="formula">整目层相环，开突自相似（系统九特性）</div>
+                </div>
+            </div>
+            
+            <div class="knowledge-card">
+                <h3 data-icon="🔧">信息系统的3个特性</h3>
+                
+                <div class="simple-explanation">
+                    <h4>简单理解</h4>
+                    <p>信息系统在继承系统基本特性的基础上，还具有3个独特特性：人造性、开放性、脆弱性。这些特性反映了信息系统的本质属性。</p>
+                </div>
+                
+                <div class="analogy-box">
+                    <h4>生活比喻</h4>
+                    <p>信息系统像一栋智能大楼：人造性（人工建造）、开放性（与外界联通）、脆弱性（容易受损坏）。</p>
+                </div>
+                
+                <div class="visual-diagram">
+                    <div class="diagram-title">信息系统的3个特性</div>
+                    <div class="step-layout">
+                        <div class="step-item">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>人造性</h4>
+                                <p>信息系统是人工设计和建造的，具有明确的目的性和功能性。</p>
+                                <div class="detail">
+                                    <strong>特点：</strong>有明确的设计意图和功能要求<br>
+                                    <strong>体现：</strong>系统架构、业务流程、用户界面都是人工设计的<br>
+                                    <strong>例子：</strong>银行信息系统、电商平台、政务服务系统
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>开放性</h4>
+                                <p>信息系统需要与外部环境进行信息、数据、功能的交换和共享。</p>
+                                <div class="detail">
+                                    <strong>表现：</strong>数据接口、API服务、系统集成<br>
+                                    <strong>意义：</strong>避免信息孤岛，实现系统协同<br>
+                                    <strong>例子：</strong>微信支付接入各种应用、政务系统数据共享
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>脆弱性</h4>
+                                <p>信息系统容易受到各种内外部因素的影响而发生故障或被破坏。</p>
+                                <div class="detail">
+                                    <strong>威胁：</strong>网络攻击、系统漏洞、硬件故障、人为错误<br>
+                                    <strong>影响：</strong>数据丢失、服务中断、经济损失<br>
+                                    <strong>防护：</strong>安全防护、备份机制、容错设计
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="memory-tool">
+                    <h4>记忆公式</h4>
+                    <div class="formula">人造开放脆弱性（信息系统三特性）</div>
+                </div>
+            </div>
+            
+            <div class="knowledge-card">
+                <h3 data-icon="🏛️">国家信息化体系6要素</h3>
+                
+                <div class="simple-explanation">
+                    <h4>简单理解</h4>
+                    <p>国家信息化体系是一个复杂的系统工程，由6个相互关联的要素组成，构成了国家信息化建设的完整框架。</p>
+                </div>
+                
+                <div class="analogy-box">
+                    <h4>生活比喻</h4>
+                    <p>国家信息化体系就像建设现代化国家：信息资源是原材料，信息网络是交通网，信息技术应用是各种设施，信息技术产业是制造业，信息化人才是建设者，政策法规是规章制度。</p>
+                </div>
+                
+                <div class="visual-diagram">
+                    <div class="diagram-title">国家信息化体系6要素详解</div>
+                    <div class="hexagon-grid">
+                        <div class="hexagon-item" data-number="1">
+                            <h4>信息资源</h4>
+                            <p>信息化的核心要素，包括各类数据、信息和知识资源</p>
+                            <div class="example">
+                                包括：政务数据、企业数据、个人数据<br>
+                                作用：为信息化应用提供数据支撑
+                            </div>
+                        </div>
+                        
+                        <div class="hexagon-item" data-number="2">
+                            <h4>信息网络</h4>
+                            <p>信息传输的基础设施，是信息化的神经网络</p>
+                            <div class="example">
+                                包括：互联网、移动网、卫星网<br>
+                                作用：实现信息的快速传输和共享
+                            </div>
+                        </div>
+                        
+                        <div class="hexagon-item" data-number="3">
+                            <h4>信息技术应用</h4>
+                            <p>信息技术在各行各业的具体应用和实践</p>
+                            <div class="example">
+                                包括：电子政务、电子商务、数字教育<br>
+                                作用：提升社会各领域的信息化水平
+                            </div>
+                        </div>
+                        
+                        <div class="hexagon-item" data-number="4">
+                            <h4>信息技术和产业</h4>
+                            <p>信息技术研发和信息产业发展的支撑体系</p>
+                            <div class="example">
+                                包括：软件产业、硬件制造、信息服务<br>
+                                作用：为信息化提供技术和产业支撑
+                            </div>
+                        </div>
+                        
+                        <div class="hexagon-item" data-number="5">
+                            <h4>信息化人才</h4>
+                            <p>具备信息技术知识和技能的专业人才队伍</p>
+                            <div class="example">
+                                包括：IT技术人员、数字化管理人才<br>
+                                作用：为信息化建设提供人力资源保障
+                            </div>
+                        </div>
+                        
+                        <div class="hexagon-item" data-number="6">
+                            <h4>政策法规和标准规范</h4>
+                            <p>指导和规范信息化发展的制度保障体系</p>
+                            <div class="example">
+                                包括：信息化规划、网络安全法、数据标准<br>
+                                作用：为信息化发展提供法律和制度保障
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="memory-tool">
+                    <h4>记忆公式</h4>
+                    <div class="formula">资源网络应用技术，人才政策六要素</div>
+                </div>
+            </div>
+            
+            <div class="knowledge-card">
+                <h3 data-icon="🌐">信息化的6个基本内涵</h3>
+                
+                <div class="simple-explanation">
+                    <h4>简单理解</h4>
+                    <p>信息化是一个系统工程，需要6个要素协同配合：基础设施（硬件）、产业基础（软件）、运行环境（制度）、技术应用（工具）、资源配置（数据）、效用积累（价值）。</p>
+                </div>
+                
+                <div class="analogy-box">
+                    <h4>生活比喻</h4>
+                    <p>信息化建设就像建设一个现代化城市：需要道路网络（信息网络）、工业基础（信息产业）、社会环境（运行环境）、技术应用（信息技术）、资源配置（信息资源）、效用体现（价值创造）。</p>
+                </div>
+                
+                <div class="visual-diagram">
+                    <div class="diagram-title">信息化的6个基本要素</div>
+                    <div class="pyramid">
+                        <div class="pyramid-level">
+                            <div class="pyramid-block">信息化六要素</div>
+                        </div>
+                        <div class="pyramid-level">
+                            <div class="pyramid-block">基础设施</div>
+                            <div class="pyramid-block">应用实施</div>
+                        </div>
+                        <div class="pyramid-level">
+                            <div class="pyramid-block">信息网络体系</div>
+                            <div class="pyramid-block">信息产业基础</div>
+                            <div class="pyramid-block">社会运行环境</div>
+                            <div class="pyramid-block">效用积累过程</div>
+                            <div class="pyramid-block">信息技术应用</div>
+                            <div class="pyramid-block">信息资源配置</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="memory-tool">
+                    <h4>记忆公式</h4>
+                    <div class="formula">网络产业环境好，效用技术配资源</div>
+                </div>
+            </div>
+            
+            <div class="think-question" onclick="toggleQuestion(this)">
+                <h4>🤔 思考题：信息的11个特征中，哪些是信息独有的？</h4>
+                <div class="think-answer">
+                    <p><strong>答案解析：</strong></p>
+                    <p>信息独有的特征主要有6个：①客观性（不依赖主观意识存在）②普遍性（无处不在）③无限性（永远用不完）④依附性（必须依附载体）⑤变换性（可以在不同载体间转换）⑥传递性（可以跨时空传播）</p>
+                    <p>这些特征区别于物质和能量，体现了信息的独特本质。</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 1.2 现代化基础设施 -->
+        <div class="section" id="section-1-2">
+            <h2>1.2 现代化基础设施</h2>
+            
+            <div class="knowledge-card">
+                <h3 data-icon="🏗️">新型基础设施3大类</h3>
+                
+                <div class="simple-explanation">
+                    <h4>简单理解</h4>
+                    <p>新基建是数字经济时代的"水电煤"，分为三个层次：信息基础设施（数字底座）、融合基础设施（传统+数字）、创新基础设施（创新引擎）。</p>
+                </div>
+                
+                <div class="analogy-box">
+                    <h4>生活比喻</h4>
+                    <p>新基建就像盖房子：信息基础设施是地基（5G、云计算），融合基础设施是主体结构（智能交通、智慧能源），创新基础设施是装修（科研院所、创新平台）。</p>
+                </div>
+                
+                <div class="visual-diagram">
+                    <div class="diagram-title">新基建的三层架构</div>
+                    <div class="pyramid">
+                        <div class="pyramid-level">
+                            <div class="pyramid-block">创新基础设施</div>
+                        </div>
+                        <div class="pyramid-level">
+                            <div class="pyramid-block">融合基础设施</div>
+                        </div>
+                        <div class="pyramid-level">
+                            <div class="pyramid-block">信息基础设施</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="comparison-table">
+                    <tr>
+                        <th>类别</th>
+                        <th>定义</th>
+                        <th>典型代表</th>
+                        <th>主要作用</th>
+                    </tr>
+                    <tr>
+                        <td>信息基础设施</td>
+                        <td>数字经济的底座</td>
+                        <td>5G、云计算、人工智能</td>
+                        <td>提供算力、网络、数据支撑</td>
+                    </tr>
+                    <tr>
+                        <td>融合基础设施</td>
+                        <td>传统设施的智能化</td>
+                        <td>智能交通、智慧能源</td>
+                        <td>提升传统设施效率</td>
+                    </tr>
+                    <tr>
+                        <td>创新基础设施</td>
+                        <td>创新活动的支撑</td>
+                        <td>科研院所、创新平台</td>
+                        <td>推动科技创新发展</td>
+                    </tr>
+                </table>
+                
+                <div class="memory-tool">
+                    <h4>记忆公式</h4>
+                    <div class="formula">信息（底座）+ 融合（桥梁）+ 创新（引擎）= 新基建</div>
+                </div>
+            </div>
+            
+            <div class="knowledge-card">
+                <h3 data-icon="🏭">工业互联网4层架构</h3>
+                
+                <div class="simple-explanation">
+                    <h4>简单理解</h4>
+                    <p>工业互联网是智能工厂的神经系统，从下到上分为4层：设备层（感知）、网络层（传输）、数据层（处理）、应用层（应用）。</p>
+                </div>
+                
+                <div class="analogy-box">
+                    <h4>生活比喻</h4>
+                    <p>工业互联网像人体：设备层是感官（眼耳鼻舌），网络层是神经（传递信息），数据层是大脑（处理信息），应用层是行动（指挥行为）。</p>
+                </div>
+                
+                <div class="visual-diagram">
+                    <div class="diagram-title">工业互联网四层架构</div>
+                    <div class="pyramid">
+                        <div class="pyramid-level">
+                            <div class="pyramid-block">应用层 - 工业APP</div>
+                        </div>
+                        <div class="pyramid-level">
+                            <div class="pyramid-block">数据层 - 数据处理</div>
+                        </div>
+                        <div class="pyramid-level">
+                            <div class="pyramid-block">网络层 - 数据传输</div>
+                        </div>
+                        <div class="pyramid-level">
+                            <div class="pyramid-block">设备层 - 智能设备</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="memory-tool">
+                    <h4>记忆公式</h4>
+                    <div class="formula">设备感知→网络传输→数据处理→应用服务</div>
+                </div>
+            </div>
+            
+            <div class="knowledge-card">
+                <h3 data-icon="🏭">工业互联网6种典型应用模式</h3>
+                
+                <div class="simple-explanation">
+                    <h4>简单理解</h4>
+                    <p>工业互联网通过6种典型应用模式，实现制造业的数字化转型升级：从设计到管理，从制造到服务的全链条创新。</p>
+                </div>
+                
+                <div class="analogy-box">
+                    <h4>生活比喻</h4>
+                    <p>工业互联网应用就像餐厅的全面升级：平台化设计（标准化菜谱）、智能化制造（自动化厨房）、网络化协同（多店联营）、个性化定制（私人定制）、服务化延伸（送餐到家）、数字化管理（智能管理）。</p>
+                </div>
+                
+                <div class="visual-diagram">
+                    <div class="diagram-title">工业互联网6种典型应用模式</div>
+                    <div class="hexagon-grid">
+                        <div class="hexagon-item" data-number="1">
+                            <h4>平台化设计</h4>
+                            <p>建立统一的设计平台，实现设计资源共享和协同设计</p>
+                            <div class="example">
+                                例如：CAD云平台、协同设计系统<br>
+                                多地设计团队同时开发一个产品
+                            </div>
+                        </div>
+                        
+                        <div class="hexagon-item" data-number="2">
+                            <h4>智能化制造</h4>
+                            <p>运用人工智能、机器学习等技术实现智能生产</p>
+                            <div class="example">
+                                例如：无人工厂、智能质检、预测性维护<br>
+                                机器自动调节参数优化生产
+                            </div>
+                        </div>
+                        
+                        <div class="hexagon-item" data-number="3">
+                            <h4>网络化协同</h4>
+                            <p>通过网络连接实现跨企业、跨地域的协同合作</p>
+                            <div class="example">
+                                例如：供应链协同、远程协作<br>
+                                总部与分厂实时协调生产
+                            </div>
+                        </div>
+                        
+                        <div class="hexagon-item" data-number="4">
+                            <h4>个性化定制</h4>
+                            <p>根据客户需求提供个性化的产品和服务</p>
+                            <div class="example">
+                                例如：C2M模式、柔性生产<br>
+                                消费者定制专属产品
+                            </div>
+                        </div>
+                        
+                        <div class="hexagon-item" data-number="5">
+                            <h4>服务化延伸</h4>
+                            <p>从产品制造向服务提供延伸，创新商业模式</p>
+                            <div class="example">
+                                例如：设备租赁、远程运维<br>
+                                卖设备变成卖服务
+                            </div>
+                        </div>
+                        
+                        <div class="hexagon-item" data-number="6">
+                            <h4>数字化管理</h4>
+                            <p>运用数字技术实现精细化、智能化管理</p>
+                            <div class="example">
+                                例如：数据驱动决策、智能调度<br>
+                                实时监控生产全流程
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="memory-tool">
+                    <h4>记忆公式</h4>
+                    <div class="formula">平台智能网络化，个性服务数字化</div>
+                </div>
+            </div>
+            
+            <div class="knowledge-card">
+                <h3 data-icon="🌃">城市物联网8个应用场景</h3>
+                
+                <div class="simple-explanation">
+                    <h4>简单理解</h4>
+                    <p>城市物联网就是给城市装上"眼睛"和"大脑"，让城市变得更智能。8个应用场景覆盖人们生活的方方面面。</p>
+                </div>
+                
+                <div class="analogy-box">
+                    <h4>生活比喻</h4>
+                    <p>城市物联网像一个超级管家：管交通（智能交通）、管环境（智慧环保）、管健康（智慧医疗）、管教育（智慧教育）、管家庭（智能家居）、管能源（智慧能源）、管农业（智慧农业）、管物流（智慧物流）。</p>
+                </div>
+                
+                <div class="visual-diagram">
+                    <div class="diagram-title">城市物联网8大应用场景</div>
+                    <div class="honeycomb-layout">
+                        <div class="honeycomb-item" data-icon="🚗">
+                            <h4>智能交通</h4>
+                            <p>实时路况监控、智能红绿灯、自动驾驶支持</p>
+                            <div class="example">例如：高德地图实时路况、滴滴智能调度</div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="🌱">
+                            <h4>智慧环保</h4>
+                            <p>空气质量监测、水质检测、噪音监控</p>
+                            <div class="example">例如：PM2.5监测站、河流水质传感器</div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="🏥">
+                            <h4>智慧医疗</h4>
+                            <p>远程诊断、健康监测、智能药房</p>
+                            <div class="example">例如：健康手环、远程医疗平台</div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="🎓">
+                            <h4>智慧教育</h4>
+                            <p>在线学习、智能课堂、个性化教学</p>
+                            <div class="example">例如：钉钉课堂、智能黑板</div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="🏠">
+                            <h4>智能家居</h4>
+                            <p>智能门锁、自动照明、环境控制</p>
+                            <div class="example">例如：小米智能家居、天猫精灵</div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="⚡">
+                            <h4>智慧能源</h4>
+                            <p>智能电网、节能监控、新能源管理</p>
+                            <div class="example">例如：智能电表、光伏发电系统</div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="🌾">
+                            <h4>智慧农业</h4>
+                            <p>精准灌溉、土壤监测、作物生长监控</p>
+                            <div class="example">例如：温室大棚传感器、无人机植保</div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="📦">
+                            <h4>智慧物流</h4>
+                            <p>包裹追踪、智能仓储、配送优化</p>
+                            <div class="example">例如：菜鸟网络、京东物流</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="memory-tool">
+                    <h4>记忆公式</h4>
+                    <div class="formula">交通环保医疗教育，家居能源农业物流</div>
+                </div>
+            </div>
+            
+            <div class="think-question" onclick="toggleQuestion(this)">
+                <h4>🤔 思考题：新基建与传统基建的主要区别是什么？</h4>
+                <div class="think-answer">
+                    <p><strong>答案解析：</strong></p>
+                    <p>新基建与传统基建的主要区别：</p>
+                    <p>①<strong>服务对象不同：</strong>新基建服务数字经济，传统基建服务工业经济</p>
+                    <p>②<strong>技术特征不同：</strong>新基建数字化智能化，传统基建主要是物理设施</p>
+                    <p>③<strong>发展速度不同：</strong>新基建迭代更新快，传统基建建设周期长</p>
+                    <p>④<strong>经济作用不同：</strong>新基建重在融合创新，传统基建重在基础支撑</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 1.3 产业现代化 -->
+        <div class="section" id="section-1-3">
+            <h2>1.3 产业现代化</h2>
+            
+            <div class="knowledge-card">
+                <h3 data-icon="🌾">农业现代化</h3>
+                
+                <div class="simple-explanation">
+                    <h4>简单理解</h4>
+                    <p>农业现代化就是让农业变得更智能、更精准、更高效。从传统的"靠天吃饭"变成"靠数据种田"。</p>
+                </div>
+                
+                <div class="analogy-box">
+                    <h4>生活比喻</h4>
+                    <p>农业现代化就像从手动档汽车升级到自动驾驶：精准农业是GPS导航，智能装备是自动驾驶，数字农业是车载电脑，物联网是各种传感器。</p>
+                </div>
+                
+                <div class="visual-diagram">
+                    <div class="diagram-title">农业现代化发展历程</div>
+                    <div class="process-flow">
+                        <div class="process-step" data-step="1">
+                            <h4>传统农业</h4>
+                            <p>靠经验种田</p>
+                        </div>
+                        <div class="process-arrow">→</div>
+                        <div class="process-step" data-step="2">
+                            <h4>机械化农业</h4>
+                            <p>机器代替人力</p>
+                        </div>
+                        <div class="process-arrow">→</div>
+                        <div class="process-step" data-step="3">
+                            <h4>信息化农业</h4>
+                            <p>信息指导生产</p>
+                        </div>
+                        <div class="process-arrow">→</div>
+                        <div class="process-step" data-step="4">
+                            <h4>智慧农业</h4>
+                            <p>数据驱动决策</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="memory-tool">
+                    <h4>记忆公式</h4>
+                    <div class="formula">精准农业 + 智能装备 + 数字农业 + 物联网 = 农业现代化</div>
+                </div>
+            </div>
+            
+            <div class="knowledge-card">
+                <h3 data-icon="🏭">两化融合</h3>
+                
+                <div class="simple-explanation">
+                    <h4>简单理解</h4>
+                    <p>两化融合是信息化与工业化的深度融合，经历4个阶段：起步建设→应用普及→综合集成→协同创新。</p>
+                </div>
+                
+                <div class="analogy-box">
+                    <h4>生活比喻</h4>
+                    <p>两化融合就像学开车：起步建设（买车考驾照）→应用普及（会开车了）→综合集成（各种路况都能开）→协同创新（成为赛车手）。</p>
+                </div>
+                
+                <div class="visual-diagram">
+                    <div class="diagram-title">两化融合的4个发展阶段</div>
+                    <div class="step-layout">
+                        <div class="step-item">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>起步建设阶段</h4>
+                                <p>搭建信息化基础设施，建立基本的网络和设备环境。</p>
+                                <div class="detail">
+                                    <strong>重点任务：</strong>购买硬件设备、建设网络基础设施、培训基础人员<br>
+                                    <strong>典型标志：</strong>企业有了电脑、网络、基础软件<br>
+                                    <strong>能力水平：</strong>具备基本的信息化硬件环境
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>应用普及阶段</h4>
+                                <p>部署各种业务系统，实现业务流程的信息化管理。</p>
+                                <div class="detail">
+                                    <strong>重点任务：</strong>上线ERP、CRM、OA等业务系统<br>
+                                    <strong>典型标志：</strong>各部门都有专门的信息系统<br>
+                                    <strong>能力水平：</strong>业务流程实现信息化管理
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>综合集成阶段</h4>
+                                <p>打通各系统间的数据孤岛，实现信息共享和业务协同。</p>
+                                <div class="detail">
+                                    <strong>重点任务：</strong>系统集成、数据共享、流程优化<br>
+                                    <strong>典型标志：</strong>数据可以在系统间流通共享<br>
+                                    <strong>能力水平：</strong>实现跨部门的信息协同
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>协同创新阶段</h4>
+                                <p>利用信息技术创新商业模式，实现数字化转型升级。</p>
+                                <div class="detail">
+                                    <strong>重点任务：</strong>模式创新、智能制造、数字化转型<br>
+                                    <strong>典型标志：</strong>智能工厂、无人车间、AI决策<br>
+                                    <strong>能力水平：</strong>信息化驱动业务创新发展
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="memory-tool">
+                    <h4>记忆公式</h4>
+                    <div class="formula">起步→应用→集成→创新（两化融合四部曲）</div>
+                </div>
+            </div>
+            
+            <div class="knowledge-card">
+                <h3 data-icon="🤖">智能制造成熟度5个等级</h3>
+                
+                <div class="simple-explanation">
+                    <h4>简单理解</h4>
+                    <p>智能制造成熟度就像游戏等级，从1级到5级，每级都有明确的能力要求和特征。</p>
+                </div>
+                
+                <div class="analogy-box">
+                    <h4>生活比喻</h4>
+                    <p>智能制造成熟度像学习阶段：1级（制定学习计划）→2级（建立学习习惯）→3级（各科成绩整合）→4级（持续优化方法）→5级（成为学霸榜样）。</p>
+                </div>
+                
+                <div class="visual-diagram">
+                    <div class="diagram-title">智能制造成熟度5个等级</div>
+                    <div class="level-display">
+                        <div class="level-item" data-level="1">
+                            <h4>规划级</h4>
+                            <p>制定智能制造战略规划</p>
+                        </div>
+                        <div class="level-item" data-level="2">
+                            <h4>规范级</h4>
+                            <p>建立标准化流程体系</p>
+                        </div>
+                        <div class="level-item" data-level="3">
+                            <h4>集成级</h4>
+                            <p>实现系统集成互通</p>
+                        </div>
+                        <div class="level-item" data-level="4">
+                            <h4>优化级</h4>
+                            <p>数据驱动持续优化</p>
+                        </div>
+                        <div class="level-item" data-level="5">
+                            <h4>引领级</h4>
+                            <p>行业标杆创新应用</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="memory-tool">
+                    <h4>记忆公式</h4>
+                    <div class="formula">规划→规范→集成→优化→引领（智能制造五步走）</div>
+                </div>
+            </div>
+            
+            <div class="knowledge-card">
+                <h3 data-icon="🔗">服务现代化3种融合形态</h3>
+                
+                <div class="simple-explanation">
+                    <h4>简单理解</h4>
+                    <p>服务现代化通过信息技术与传统服务的融合，形成3种不同层次的融合形态，推动服务业转型升级。</p>
+                </div>
+                
+                <div class="analogy-box">
+                    <h4>生活比喻</h4>
+                    <p>服务现代化融合形态就像咖啡的制作：结合型融合（咖啡+牛奶=拿铁），绑定型融合（咖啡机+APP=智能咖啡机），延伸型融合（咖啡店+会员制=生活方式服务）。</p>
+                </div>
+                
+                <div class="visual-diagram">
+                    <div class="diagram-title">服务现代化3种融合形态</div>
+                    <div class="step-layout">
+                        <div class="step-item">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>结合型融合</h4>
+                                <p>信息技术与传统服务简单结合，提升服务效率和体验</p>
+                                <div class="detail">
+                                    <strong>特征：</strong>技术与服务并行存在，相互补充<br>
+                                    <strong>层次：</strong>初级融合，主要是工具性应用<br>
+                                    <strong>例子：</strong>银行柜台+网银、传统购物+网购、课堂教学+在线课程<br>
+                                    <strong>效果：</strong>扩展服务渠道，提高服务便利性
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>绑定型融合</h4>
+                                <p>信息技术与服务流程深度绑定，重构服务模式</p>
+                                <div class="detail">
+                                    <strong>特征：</strong>技术成为服务不可分割的组成部分<br>
+                                    <strong>层次：</strong>深度融合，流程重塑<br>
+                                    <strong>例子：</strong>移动支付、智能客服、无人零售、远程医疗<br>
+                                    <strong>效果：</strong>服务流程数字化，用户体验升级
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>延伸型融合</h4>
+                                <p>基于数字技术创新服务模式，拓展服务边界</p>
+                                <div class="detail">
+                                    <strong>特征：</strong>创造全新的服务形态和商业模式<br>
+                                    <strong>层次：</strong>创新融合，价值重构<br>
+                                    <strong>例子：</strong>平台经济、共享服务、订阅模式、生态服务<br>
+                                    <strong>效果：</strong>产生新的价值创造方式和商业生态
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="memory-tool">
+                    <h4>记忆公式</h4>
+                    <div class="formula">结合→绑定→延伸（服务融合三步曲）</div>
+                </div>
+            </div>
+            
+            <div class="knowledge-card">
+                <h3 data-icon="🏪">服务业现代化</h3>
+                
+                <div class="simple-explanation">
+                    <h4>简单理解</h4>
+                    <p>服务业现代化就是让服务更智能、更便民、更高效。从传统的面对面服务升级到数字化服务。</p>
+                </div>
+                
+                <div class="analogy-box">
+                    <h4>生活比喻</h4>
+                    <p>服务业现代化就像餐厅升级：数字服务（扫码点餐）、平台经济（外卖平台）、共享经济（共享厨房）、智能服务（AI推荐菜品）。</p>
+                </div>
+                
+                <div class="visual-diagram">
+                    <div class="diagram-title">服务业现代化四大特征</div>
+                    <div class="honeycomb-layout">
+                        <div class="honeycomb-item" data-icon="💻">
+                            <h4>数字服务</h4>
+                            <p>传统服务向数字化、在线化转型</p>
+                            <div class="example">
+                                例如：网上银行、在线教育、远程医疗<br>
+                                移动支付、电子商务、数字娱乐
+                            </div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="🏢">
+                            <h4>平台经济</h4>
+                            <p>构建多方参与的生态化服务平台</p>
+                            <div class="example">
+                                例如：淘宝、美团、滴滴打车<br>
+                                连接供需双方，创造价值网络
+                            </div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="🤝">
+                            <h4>共享经济</h4>
+                            <p>通过共享模式优化资源配置</p>
+                            <div class="example">
+                                例如：共享单车、共享汽车、共享办公<br>
+                                提高资源利用效率，降低使用成本
+                            </div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="🤖">
+                            <h4>智能服务</h4>
+                            <p>运用AI等技术提供智能化服务</p>
+                            <div class="example">
+                                例如：智能客服、个性化推荐、智能决策<br>
+                                机器学习、自然语言处理、大数据分析
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="memory-tool">
+                    <h4>记忆公式</h4>
+                    <div class="formula">数字平台共享智能 = 服务业现代化</div>
+                </div>
+            </div>
+            
+            <div class="think-question" onclick="toggleQuestion(this)">
+                <h4>🤔 思考题：智能制造成熟度模型的核心要素有哪些？</h4>
+                <div class="think-answer">
+                    <p><strong>答案解析：</strong></p>
+                    <p>智能制造成熟度模型的核心要素包括两个维度：</p>
+                    <p>①<strong>能力维度（4个）：</strong>人员、技术、资源、制造</p>
+                    <p>②<strong>生命周期维度（5个）：</strong>设计、生产、物流、销售、服务</p>
+                    <p>两个维度交叉形成4×5=20个能力子域，每个子域都有具体的评估标准，全面评价企业智能制造水平。</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 1.4 数字中国 -->
+        <div class="section" id="section-1-4">
+            <h2>1.4 数字中国</h2>
+            
+            <div class="knowledge-card">
+                <h3 data-icon="💰">数字经济4个组成部分</h3>
+                
+                <div class="simple-explanation">
+                    <h4>简单理解</h4>
+                    <p>数字经济包含4个部分：数字产业化（数字技术变产业）、产业数字化（传统产业用数字）、数字治理（政府数字化）、数据价值化（数据变资产）。</p>
+                </div>
+                
+                <div class="analogy-box">
+                    <h4>生活比喻</h4>
+                    <p>数字经济就像一个生态系统：数字产业化是种子（新产业），产业数字化是土壤（传统产业升级），数字治理是阳光（政府支持），数据价值化是水分（数据养分）。</p>
+                </div>
+                
+                <div class="visual-diagram">
+                    <div class="diagram-title">数字经济的4个组成部分</div>
+                    <div class="honeycomb-layout">
+                        <div class="honeycomb-item" data-icon="🚀">
+                            <h4>数字产业化</h4>
+                            <p>数字技术催生新产业，如云计算、大数据、人工智能等</p>
+                            <div class="example">
+                                例如：阿里云、腾讯云、华为云等云计算服务<br>
+                                百度AI、科大讯飞等人工智能产业
+                            </div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="⚙️">
+                            <h4>产业数字化</h4>
+                            <p>传统产业利用数字技术进行改造升级</p>
+                            <div class="example">
+                                例如：智能制造、数字农业、在线教育<br>
+                                传统银行开发手机银行APP
+                            </div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="🏛️">
+                            <h4>数字治理</h4>
+                            <p>政府运用数字技术提升治理能力和服务水平</p>
+                            <div class="example">
+                                例如：一网通办、健康码、数字政务<br>
+                                在线办证、智慧城市管理
+                            </div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="💎">
+                            <h4>数据价值化</h4>
+                            <p>将数据作为生产要素，发挥其经济价值</p>
+                            <div class="example">
+                                例如：数据交易所、数据服务公司<br>
+                                个人信用评估、精准广告投放
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="memory-tool">
+                    <h4>记忆公式</h4>
+                    <div class="formula">数字产业化 + 产业数字化 + 数字治理 + 数据价值化 = 数字经济</div>
+                </div>
+            </div>
+            
+            <div class="knowledge-card">
+                <h3 data-icon="🏛️">数字政府7个能力体系</h3>
+                
+                <div class="simple-explanation">
+                    <h4>简单理解</h4>
+                    <p>数字政府能力体系涵盖政府职能的7个核心领域，构建全面的数字化治理能力框架。</p>
+                </div>
+                
+                <div class="analogy-box">
+                    <h4>生活比喻</h4>
+                    <p>数字政府能力体系就像一个全能管家：经济调节（理财顾问）、市场监管（质量监督）、社会管理（物业管理）、公共服务（生活服务）、生态环境保护（环境卫士）、政务运行（内部管理）、政务公开（信息透明）。</p>
+                </div>
+                
+                <div class="visual-diagram">
+                    <div class="diagram-title">数字政府7个能力体系详解</div>
+                    <div class="hexagon-grid">
+                        <div class="hexagon-item" data-number="1">
+                            <h4>经济调节能力</h4>
+                            <p>运用数字技术提升宏观经济调控和政策制定能力</p>
+                            <div class="example">
+                                包括：经济监测、政策模拟、数据分析<br>
+                                应用：实时监控经济指标，预测经济走势
+                            </div>
+                        </div>
+                        
+                        <div class="hexagon-item" data-number="2">
+                            <h4>市场监管能力</h4>
+                            <p>利用数字化手段加强市场监管和维护市场秩序</p>
+                            <div class="example">
+                                包括：信用监管、风险预警、执法协同<br>
+                                应用：企业信用评价、食品安全追溯
+                            </div>
+                        </div>
+                        
+                        <div class="hexagon-item" data-number="3">
+                            <h4>社会管理能力</h4>
+                            <p>运用数字技术创新社会治理模式和提升管理效能</p>
+                            <div class="example">
+                                包括：社会治安、应急管理、人口管理<br>
+                                应用：智慧社区、网格化管理、应急指挥
+                            </div>
+                        </div>
+                        
+                        <div class="hexagon-item" data-number="4">
+                            <h4>公共服务能力</h4>
+                            <p>通过数字化手段提升公共服务质量和便民水平</p>
+                            <div class="example">
+                                包括：一网通办、移动政务、智能客服<br>
+                                应用：政务APP、网上办事大厅、12345热线
+                            </div>
+                        </div>
+                        
+                        <div class="hexagon-item" data-number="5">
+                            <h4>生态环境保护能力</h4>
+                            <p>利用数字技术加强环境监测和生态保护管理</p>
+                            <div class="example">
+                                包括：环境监测、污染防治、生态修复<br>
+                                应用：空气质量监测、水质在线监测
+                            </div>
+                        </div>
+                        
+                        <div class="hexagon-item" data-number="6">
+                            <h4>政务运行能力</h4>
+                            <p>运用数字化手段优化政府内部运行和协同办公</p>
+                            <div class="example">
+                                包括：协同办公、流程优化、绩效管理<br>
+                                应用：政务云、视频会议、电子公文
+                            </div>
+                        </div>
+                        
+                        <div class="hexagon-item" data-number="7">
+                            <h4>政务公开能力</h4>
+                            <p>通过数字平台推进政务信息公开和透明度建设</p>
+                            <div class="example">
+                                包括：信息发布、互动交流、监督举报<br>
+                                应用：政府门户网站、政务微博微信
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="memory-tool">
+                    <h4>记忆公式</h4>
+                    <div class="formula">经济市场社会服务，生态运行公开七能力</div>
+                </div>
+            </div>
+            
+            <div class="knowledge-card">
+                <h3 data-icon="🏛️">数字政府5个特征</h3>
+                
+                <div class="simple-explanation">
+                    <h4>简单理解</h4>
+                    <p>数字政府就是让政府服务更智能、更高效、更便民。5个特征体现了现代政府的新特点。</p>
+                </div>
+                
+                <div class="analogy-box">
+                    <h4>生活比喻</h4>
+                    <p>数字政府像一个超级客服中心：整体性（统一管理）、协同性（部门配合）、响应性（快速回应）、精准性（精确服务）、开放性（透明公开）。</p>
+                </div>
+                
+                <div class="visual-diagram">
+                    <div class="diagram-title">数字政府的5个特征</div>
+                    <div class="honeycomb-layout">
+                        <div class="honeycomb-item" data-icon="🎯">
+                            <h4>整体性</h4>
+                            <p>政府各部门统筹规划，避免重复建设和信息孤岛</p>
+                            <div class="example">例如：国家政务服务平台统一入口，一网通办</div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="🤝">
+                            <h4>协同性</h4>
+                            <p>各部门之间协作配合，数据共享，业务协同</p>
+                            <div class="example">例如：公安、民政、社保等部门数据互联互通</div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="⚡">
+                            <h4>响应性</h4>
+                            <p>快速响应公众需求，及时处理各类政务服务</p>
+                            <div class="example">例如：12345热线24小时服务，在线秒批秒办</div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="🎯">
+                            <h4>精准性</h4>
+                            <p>精确识别服务对象，提供个性化精准服务</p>
+                            <div class="example">例如：根据用户身份自动推送相关服务</div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="🔓">
+                            <h4>开放性</h4>
+                            <p>政务信息公开透明，接受社会监督</p>
+                            <div class="example">例如：政府网站信息公开，阳光政务</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="memory-tool">
+                    <h4>记忆公式</h4>
+                    <div class="formula">整体协同响应，精准开放政府</div>
+                </div>
+            </div>
+            
+            <div class="knowledge-card">
+                <h3 data-icon="🏙️">智慧城市基本原理和5个核心能力要素</h3>
+                
+                <div class="simple-explanation">
+                    <h4>简单理解</h4>
+                    <p>智慧城市基于现代信息技术，通过5个核心能力要素的协同作用，实现城市治理现代化和人民生活智能化。</p>
+                </div>
+                
+                <div class="analogy-box">
+                    <h4>生活比喻</h4>
+                    <p>智慧城市就像一个超级智能机器人：数据治理是大脑（思维中枢），数字孪生是神经系统（感知网络），边际决策是反应系统（快速响应），多元融合是协调系统（统筹协调），态势感知是感官系统（全面感知）。</p>
+                </div>
+                
+                <div class="visual-diagram">
+                    <div class="diagram-title">智慧城市基本原理</div>
+                    <div class="simple-explanation">
+                        <p><strong>基本原理：</strong>智慧城市以新一代信息技术为支撑，通过泛在感知、万物互联、数据融合、智能分析，构建城市级数字化治理体系，实现"一网通管、一网统管、一网共治"的智慧治理模式。</p>
+                    </div>
+                </div>
+                
+                <div class="visual-diagram">
+                    <div class="diagram-title">智慧城市5个核心能力要素</div>
+                    <div class="hexagon-grid">
+                        <div class="hexagon-item" data-number="1">
+                            <h4>数据治理能力</h4>
+                            <p>建立统一的数据标准、数据共享和数据安全管理体系</p>
+                            <div class="example">
+                                包括：数据采集、数据清洗、数据标准化<br>
+                                作用：确保数据质量，实现数据价值最大化
+                            </div>
+                        </div>
+                        
+                        <div class="hexagon-item" data-number="2">
+                            <h4>数字孪生能力</h4>
+                            <p>构建城市的虚拟镜像，实现虚实融合的智能管理</p>
+                            <div class="example">
+                                包括：3D建模、实时同步、仿真预测<br>
+                                作用：实现城市运行的可视化、可预测、可优化
+                            </div>
+                        </div>
+                        
+                        <div class="hexagon-item" data-number="3">
+                            <h4>边际决策能力</h4>
+                            <p>在数据产生的边缘端进行实时智能决策和响应</p>
+                            <div class="example">
+                                包括：边缘计算、实时分析、自动响应<br>
+                                作用：降低延迟，提高响应速度和决策效率
+                            </div>
+                        </div>
+                        
+                        <div class="hexagon-item" data-number="4">
+                            <h4>多元融合能力</h4>
+                            <p>整合多种技术、数据、系统，形成协同治理能力</p>
+                            <div class="example">
+                                包括：技术融合、数据融合、业务融合<br>
+                                作用：打破信息孤岛，实现城市运行一体化
+                            </div>
+                        </div>
+                        
+                        <div class="hexagon-item" data-number="5">
+                            <h4>态势感知能力</h4>
+                            <p>全面感知城市运行状态，及时发现和预警风险</p>
+                            <div class="example">
+                                包括：全域感知、智能预警、趋势分析<br>
+                                作用：提升城市安全防护和应急响应能力
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="memory-tool">
+                    <h4>记忆公式</h4>
+                    <div class="formula">数据孪生边际决策，多元融合态势感知</div>
+                </div>
+            </div>
+            
+            <div class="knowledge-card">
+                <h3 data-icon="🏙️">数字社会智慧城市5个等级</h3>
+                
+                <div class="simple-explanation">
+                    <h4>简单理解</h4>
+                    <p>智慧城市建设是一个渐进过程，从数字化到智慧化，共分5个等级，每个等级都是前一等级的升级。</p>
+                </div>
+                
+                <div class="analogy-box">
+                    <h4>生活比喻</h4>
+                    <p>智慧城市发展就像手机进化：数字化（功能机）→网络化（能上网）→信息化（智能手机）→智能化（AI手机）→智慧化（全息手机）。</p>
+                </div>
+                
+                <div class="visual-diagram">
+                    <div class="diagram-title">智慧城市发展的5个等级</div>
+                    <div class="level-display">
+                        <div class="level-item" data-level="1">
+                            <h4>数字化</h4>
+                            <p>模拟信号转数字信号</p>
+                        </div>
+                        <div class="level-item" data-level="2">
+                            <h4>网络化</h4>
+                            <p>独立系统连接网络</p>
+                        </div>
+                        <div class="level-item" data-level="3">
+                            <h4>信息化</h4>
+                            <p>数据处理和应用</p>
+                        </div>
+                        <div class="level-item" data-level="4">
+                            <h4>智能化</h4>
+                            <p>人工智能应用</p>
+                        </div>
+                        <div class="level-item" data-level="5">
+                            <h4>智慧化</h4>
+                            <p>全面智慧协同</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="memory-tool">
+                    <h4>记忆公式</h4>
+                    <div class="formula">数字→网络→信息→智能→智慧（城市发展五步走）</div>
+                </div>
+            </div>
+            
+            <div class="knowledge-card">
+                <h3 data-icon="🌱">数字生态</h3>
+                
+                <div class="simple-explanation">
+                    <h4>简单理解</h4>
+                    <p>数字生态是数字化发展的支撑环境，包含4个要素：技术、人才、文化、素养。就像植物生长需要阳光、水分、土壤、空气。</p>
+                </div>
+                
+                <div class="analogy-box">
+                    <h4>生活比喻</h4>
+                    <p>数字生态就像一个森林生态系统：数字技术是阳光（提供能量），数字人才是大树（核心力量），数字文化是土壤（成长环境），数字素养是空气（普及基础）。</p>
+                </div>
+                
+                <div class="visual-diagram">
+                    <div class="diagram-title">数字生态的4个要素</div>
+                    <div class="honeycomb-layout">
+                        <div class="honeycomb-item" data-icon="🔬">
+                            <h4>数字技术</h4>
+                            <p>数字化发展的技术支撑和工具手段</p>
+                            <div class="example">
+                                例如：云计算、大数据、人工智能、5G、物联网<br>
+                                提供强大的计算能力和技术基础
+                            </div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="👨‍💼">
+                            <h4>数字人才</h4>
+                            <p>具备数字技能的专业人才队伍</p>
+                            <div class="example">
+                                例如：数据科学家、AI工程师、产品经理<br>
+                                数字化转型的核心驱动力
+                            </div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="🎯">
+                            <h4>数字文化</h4>
+                            <p>支持数字化发展的文化环境和理念</p>
+                            <div class="example">
+                                例如：创新思维、开放协作、数据驱动<br>
+                                培养数字化思维和创新文化
+                            </div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="📚">
+                            <h4>数字素养</h4>
+                            <p>全民数字技能和信息素养水平</p>
+                            <div class="example">
+                                例如：数字工具使用、信息安全意识<br>
+                                数字化社会的基础能力要求
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="memory-tool">
+                    <h4>记忆公式</h4>
+                    <div class="formula">技术人才文化素养 = 数字生态</div>
+                </div>
+            </div>
+            
+            <div class="think-question" onclick="toggleQuestion(this)">
+                <h4>🤔 思考题：数字中国建设的主要目标是什么？</h4>
+                <div class="think-answer">
+                    <p><strong>答案解析：</strong></p>
+                    <p>数字中国建设的主要目标是构建数字化发展新格局：</p>
+                    <p>①<strong>数字经济：</strong>以数据为关键要素，推动经济高质量发展</p>
+                    <p>②<strong>数字政府：</strong>建设高效协同的政府治理体系</p>
+                    <p>③<strong>数字社会：</strong>打造智慧便民的社会服务体系</p>
+                    <p>④<strong>数字生态：</strong>营造良好的数字化发展环境</p>
+                    <p>最终目标是以数字化驱动生产方式、生活方式和治理方式变革。</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 1.5 数字化转型与元宇宙 -->
+        <div class="section" id="section-1-5">
+            <h2>1.5 数字化转型与元宇宙</h2>
+            
+            <div class="knowledge-card">
+                <h3 data-icon="📚">数字化转型基本原理</h3>
+                
+                <div class="simple-explanation">
+                    <h4>简单理解</h4>
+                    <p>数字化转型基本原理是指导企业和组织进行数字化转型的核心理念和方法，包括价值导向、数据驱动、平台化思维、生态化发展等核心原理。</p>
+                </div>
+                
+                <div class="analogy-box">
+                    <h4>生活比喻</h4>
+                    <p>数字化转型基本原理就像装修房子的设计理念：价值导向（为了更好的生活），数据驱动（基于实际需求），平台化思维（统一规划布局），生态化发展（与周边环境协调）。</p>
+                </div>
+                
+                <div class="visual-diagram">
+                    <div class="diagram-title">数字化转型核心原理</div>
+                    <div class="honeycomb-layout">
+                        <div class="honeycomb-item" data-icon="🎯">
+                            <h4>价值导向原理</h4>
+                            <p>以创造和提升价值为根本目标，而非单纯追求技术先进</p>
+                            <div class="example">
+                                包括：客户价值、企业价值、社会价值<br>
+                                要求：技术应用要能创造实际价值
+                            </div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="📊">
+                            <h4>数据驱动原理</h4>
+                            <p>以数据作为决策依据，用数据指导业务发展</p>
+                            <div class="example">
+                                包括：数据采集、数据分析、数据应用<br>
+                                要求：建立数据文化和数据治理体系
+                            </div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="🏗️">
+                            <h4>平台化思维原理</h4>
+                            <p>构建统一的数字化平台，实现资源共享和能力复用</p>
+                            <div class="example">
+                                包括：技术平台、业务平台、数据平台<br>
+                                要求：统一规划，避免重复建设
+                            </div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="🌱">
+                            <h4>生态化发展原理</h4>
+                            <p>构建开放共享的数字生态，实现协同发展</p>
+                            <div class="example">
+                                包括：内部生态、产业生态、社会生态<br>
+                                要求：开放合作，共建共享
+                            </div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="🔄">
+                            <h4>敏捷迭代原理</h4>
+                            <p>采用敏捷方法，快速响应变化，持续迭代优化</p>
+                            <div class="example">
+                                包括：快速试错、持续改进、灵活调整<br>
+                                要求：建立敏捷的组织和文化
+                            </div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="👥">
+                            <h4>以人为本原理</h4>
+                            <p>重视人的作用，提升数字化能力和用户体验</p>
+                            <div class="example">
+                                包括：用户体验、员工赋能、数字素养<br>
+                                要求：技术服务于人，而非取代人
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="memory-tool">
+                    <h4>记忆公式</h4>
+                    <div class="formula">价值数据平台生态，敏捷以人为核心</div>
+                </div>
+            </div>
+            
+            <div class="knowledge-card">
+                <h3 data-icon="🚀">数字化转型4个驱动因素</h3>
+                
+                <div class="simple-explanation">
+                    <h4>简单理解</h4>
+                    <p>数字化转型是多种力量推动的结果：技术推动（有新工具）、市场拉动（有新需求）、政策推动（有新支持）、竞争推动（有新压力）。</p>
+                </div>
+                
+                <div class="analogy-box">
+                    <h4>生活比喻</h4>
+                    <p>数字化转型就像汽车升级：技术驱动（新发动机）、市场驱动（用户要求）、政策驱动（政府支持）、竞争驱动（对手压力）。</p>
+                </div>
+                
+                <div class="visual-diagram">
+                    <div class="diagram-title">数字化转型的4个驱动力</div>
+                    <div class="honeycomb-layout">
+                        <div class="honeycomb-item" data-icon="🔬">
+                            <h4>技术驱动</h4>
+                            <p>新技术的发展为数字化转型提供了工具和手段</p>
+                            <div class="example">
+                                例如：云计算、大数据、人工智能、5G等新技术<br>
+                                驱动企业采用新技术改造业务流程
+                            </div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="📊">
+                            <h4>市场驱动</h4>
+                            <p>市场需求和客户期望推动企业数字化转型</p>
+                            <div class="example">
+                                例如：消费者要求更便捷的服务体验<br>
+                                线上购物、移动支付成为主流需求
+                            </div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="📋">
+                            <h4>政策驱动</h4>
+                            <p>政府政策和规划为数字化转型提供支持和引导</p>
+                            <div class="example">
+                                例如：数字中国战略、新基建政策<br>
+                                税收优惠、资金扶持等政策支持
+                            </div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="⚔️">
+                            <h4>竞争驱动</h4>
+                            <p>同行竞争压力迫使企业加速数字化转型</p>
+                            <div class="example">
+                                例如：竞争对手数字化程度更高<br>
+                                不转型就会被市场淘汰的压力
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="memory-tool">
+                    <h4>记忆公式</h4>
+                    <div class="formula">技术市场政策竞争 = 数字化转型四驱动</div>
+                </div>
+            </div>
+            
+            <div class="knowledge-card">
+                <h3 data-icon="🎯">S8D数字化转型模型</h3>
+                
+                <div class="simple-explanation">
+                    <h4>简单理解</h4>
+                    <p>S8D模型是数字化转型的全面框架，包含8个要素：前7个S是管理要素，第8个D是数字化要素。8个要素协同配合，缺一不可。</p>
+                </div>
+                
+                <div class="analogy-box">
+                    <h4>生活比喻</h4>
+                    <p>S8D模型就像装修房子：需要设计图纸（战略）、框架结构（组织）、装修技能（技能）、水电系统（系统）、装修风格（文化）、装修工人（人员）、质量标准（共同价值）、智能家居（数字化）。</p>
+                </div>
+                
+                <div class="visual-diagram">
+                    <div class="diagram-title">S8D数字化转型模型：7S管理要素 + 1D数字要素</div>
+                    <div class="step-layout">
+                        <div class="step-item">
+                            <div class="step-number">7S</div>
+                            <div class="step-content">
+                                <h4>传统管理要素（7S模型）</h4>
+                                <p>企业管理的7个关键要素，构成管理体系的基础框架。</p>
+                                <div class="detail">
+                                    <strong>战略(Strategy)</strong>：企业发展的总体规划和目标<br>
+                                    <strong>结构(Structure)</strong>：组织架构和职责分工<br>
+                                    <strong>技能(Skill)</strong>：员工的专业技能和能力<br>
+                                    <strong>系统(System)</strong>：业务流程和管理制度<br>
+                                    <strong>文化(Style)</strong>：企业文化和管理风格<br>
+                                    <strong>人员(Staff)</strong>：人力资源的配置和管理<br>
+                                    <strong>共同价值(Shared Value)</strong>：企业核心价值观
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">+1D</div>
+                            <div class="step-content">
+                                <h4>数字化要素（Digital）</h4>
+                                <p>数字化时代新增的关键要素，是实现数字化转型的核心驱动力。</p>
+                                <div class="detail">
+                                    <strong>数字化(Digital)</strong>：数字技术的应用与数字化能力建设<br>
+                                    包括：数字化工具、数字化流程、数字化思维、数字化文化<br>
+                                    作用：通过数字化要素激活和优化传统7S要素
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">S8D</div>
+                            <div class="step-content">
+                                <h4>S8D数字化转型模型</h4>
+                                <p>传统7S要素与数字化要素的有机结合，形成完整的数字化转型框架。</p>
+                                <div class="detail">
+                                    <strong>协同作用</strong>：8个要素相互影响、相互促进<br>
+                                    <strong>系统性</strong>：必须系统性地推进，不能单独优化某个要素<br>
+                                    <strong>持续性</strong>：数字化转型是一个持续的过程
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="memory-tool">
+                    <h4>记忆公式</h4>
+                    <div class="formula">7S管理要素 + 1D数字要素 = S8D转型模型</div>
+                </div>
+            </div>
+            
+            <div class="knowledge-card">
+                <h3 data-icon="🌐">元宇宙4个特征</h3>
+                
+                <div class="simple-explanation">
+                    <h4>简单理解</h4>
+                    <p>元宇宙是虚拟世界的高级形态，有4个核心特征：沉浸性（身临其境）、社交性（虚拟社交）、开放性（自由创造）、永续性（24小时在线）。</p>
+                </div>
+                
+                <div class="analogy-box">
+                    <h4>生活比喻</h4>
+                    <p>元宇宙就像一个永不关闭的虚拟游乐园：沉浸性（戴VR眼镜玩游戏）、社交性（和朋友一起玩）、开放性（自己设计游戏）、永续性（24小时开放）。</p>
+                </div>
+                
+                <div class="visual-diagram">
+                    <div class="diagram-title">元宇宙的4个核心特征</div>
+                    <div class="honeycomb-layout">
+                        <div class="honeycomb-item" data-icon="🥽">
+                            <h4>沉浸性</h4>
+                            <p>用户能够身临其境，获得深度的虚拟体验</p>
+                            <div class="example">
+                                实现技术：VR头显、AR眼镜、全息投影<br>
+                                体验效果：视觉、听觉、触觉的全方位感知
+                            </div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="👥">
+                            <h4>社交性</h4>
+                            <p>支持多人同时在线，进行虚拟社交互动</p>
+                            <div class="example">
+                                实现方式：虚拟身份、实时通讯、虚拟聚会<br>
+                                社交形式：虚拟会议、游戏互动、虚拟购物
+                            </div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="🎨">
+                            <h4>开放性</h4>
+                            <p>用户可以自由创造和自定义虚拟世界</p>
+                            <div class="example">
+                                创造工具：虚拟建筑、数字艺术、虚拟物品<br>
+                                开放平台：去中心化、用户生成内容
+                            </div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="🔄">
+                            <h4>永续性</h4>
+                            <p>虚拟世界持续存在，不会因用户离线而消失</p>
+                            <div class="example">
+                                技术保障：云计算、分布式存储、区块链<br>
+                                持续运行：24小时在线、状态保存、发展演进
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="memory-tool">
+                    <h4>记忆公式</h4>
+                    <div class="formula">沉浸社交开放永续 = 元宇宙四特征</div>
+                </div>
+            </div>
+            
+            <div class="knowledge-card">
+                <h3 data-icon="🏢">数字营商环境</h3>
+                
+                <div class="simple-explanation">
+                    <h4>简单理解</h4>
+                    <p>数字营商环境是运用数字技术优化营商环境，提升政务服务效率，降低企业运营成本，激发市场活力的综合环境。</p>
+                </div>
+                
+                <div class="analogy-box">
+                    <h4>生活比喻</h4>
+                    <p>数字营商环境就像一个智能化商圈：政务服务（一站式服务中心）、市场监管（智能监控系统）、金融服务（便民金融）、法律保障（法律咨询机器人）。</p>
+                </div>
+                
+                <div class="visual-diagram">
+                    <div class="diagram-title">数字营商环境四大支撑</div>
+                    <div class="honeycomb-layout">
+                        <div class="honeycomb-item" data-icon="🏛️">
+                            <h4>数字政务服务</h4>
+                            <p>提供一站式、全程网办的政务服务</p>
+                            <div class="example">
+                                包括：企业注册、许可证办理、税务服务<br>
+                                特点：一网通办、最多跑一次、秒批秒办
+                            </div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="🔍">
+                            <h4>智能市场监管</h4>
+                            <p>运用大数据、AI等技术提升监管效能</p>
+                            <div class="example">
+                                包括：信用监管、风险预警、协同执法<br>
+                                特点：精准监管、包容审慎、公正透明
+                            </div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="💳">
+                            <h4>数字金融服务</h4>
+                            <p>提供便捷高效的数字化金融服务</p>
+                            <div class="example">
+                                包括：在线贷款、移动支付、数字征信<br>
+                                特点：普惠金融、降低门槛、提升效率
+                            </div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="⚖️">
+                            <h4>数字法治保障</h4>
+                            <p>建立完善的数字法治保障体系</p>
+                            <div class="example">
+                                包括：在线仲裁、知识产权保护、合规指导<br>
+                                特点：公正高效、智能便民、规范有序
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="memory-tool">
+                    <h4>记忆公式</h4>
+                    <div class="formula">政务监管金融法治 = 数字营商环境</div>
+                </div>
+            </div>
+            
+            <div class="knowledge-card">
+                <h3 data-icon="🔒">网络安全保护体系</h3>
+                
+                <div class="simple-explanation">
+                    <h4>简单理解</h4>
+                    <p>网络安全保护体系是保障网络空间安全的全方位防护体系，包括法律法规、技术标准、管理制度、技术手段等多重保障。</p>
+                </div>
+                
+                <div class="analogy-box">
+                    <h4>生活比喻</h4>
+                    <p>网络安全保护体系就像城市安全体系：法律制度（法律法规）、安全设施（防护技术）、管理队伍（安全管理）、应急机制（事件响应）、意识教育（安全文化）。</p>
+                </div>
+                
+                <div class="visual-diagram">
+                    <div class="diagram-title">网络安全保护体系五要素</div>
+                    <div class="honeycomb-layout">
+                        <div class="honeycomb-item" data-icon="📜">
+                            <h4>法律法规体系</h4>
+                            <p>建立完善的网络安全法律法规框架</p>
+                            <div class="example">
+                                包括：网络安全法、数据安全法、个人信息保护法<br>
+                                作用：提供法律依据和制度保障
+                            </div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="🛡️">
+                            <h4>技术防护体系</h4>
+                            <p>部署多层次、全方位的技术防护手段</p>
+                            <div class="example">
+                                包括：防火墙、入侵检测、加密技术、身份认证<br>
+                                作用：防范网络攻击，保护信息安全
+                            </div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="👥">
+                            <h4>管理体系</h4>
+                            <p>建立健全网络安全管理制度和组织体系</p>
+                            <div class="example">
+                                包括：安全策略、风险评估、安全审计、人员管理<br>
+                                作用：规范安全管理，落实安全责任
+                            </div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="🚨">
+                            <h4>应急响应体系</h4>
+                            <p>建立快速有效的网络安全事件应急响应机制</p>
+                            <div class="example">
+                                包括：监测预警、事件处置、恢复重建、总结改进<br>
+                                作用：及时发现和处置安全事件
+                            </div>
+                        </div>
+                        <div class="honeycomb-item" data-icon="🎓">
+                            <h4>教育培训体系</h4>
+                            <p>提升全民网络安全意识和防护技能</p>
+                            <div class="example">
+                                包括：安全教育、技能培训、意识宣传、文化建设<br>
+                                作用：提高安全素养，构建安全文化
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="memory-tool">
+                    <h4>记忆公式</h4>
+                    <div class="formula">法律技术管理应急，教育培训保安全</div>
+                </div>
+            </div>
+            
+            <div class="think-question" onclick="toggleQuestion(this)">
+                <h4>🤔 思考题：数字化转型与信息化的区别是什么？</h4>
+                <div class="think-answer">
+                    <p><strong>答案解析：</strong></p>
+                    <p>数字化转型与信息化的主要区别：</p>
+                    <p>①<strong>发展阶段：</strong>信息化是基础，数字化转型是升级</p>
+                    <p>②<strong>技术特征：</strong>信息化用IT技术，数字化转型用AI、大数据等新技术</p>
+                    <p>③<strong>变革深度：</strong>信息化改工具，数字化转型改模式</p>
+                    <p>④<strong>价值创造：</strong>信息化提效率，数字化转型创价值</p>
+                    <p>⑤<strong>发展方向：</strong>信息化是数字化，数字化转型是智能化</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 学习建议 -->
+        <div class="study-tips">
+            <h3>学习建议</h3>
+            <ul>
+                <li>建议按照章节顺序学习，先理解基本概念，再掌握应用场景</li>
+                <li>重点掌握各种分类和特征，结合生活实例加深理解</li>
+                <li>理解信息化发展的历史脉络，把握技术发展趋势</li>
+                <li>关注新技术应用，了解5G、人工智能、区块链等前沿技术</li>
+                <li>多做思考题，培养分析问题和解决问题的能力</li>
+                <li>结合实际案例，理解理论知识在实践中的应用</li>
+                <li>建立系统性知识框架，理解各概念间的逻辑关系</li>
+                <li>定期复习巩固，使用记忆公式和可视化图表强化记忆</li>
+            </ul>
+        </div>
+        
+        <!-- 综合知识框架 -->
+        <div class="section">
+            <h2>🎯 综合知识框架</h2>
+            
+            <div class="knowledge-card">
+                <h3 data-icon="🧠">知识层次结构</h3>
+                
+                <div class="visual-diagram">
+                    <div class="diagram-title">信息化发展知识体系三层架构</div>
+                    <div class="pyramid">
+                        <div class="pyramid-level">
+                            <div class="pyramid-block">应用层：数字化转型与元宇宙</div>
+                        </div>
+                        <div class="pyramid-level">
+                            <div class="pyramid-block">实践层：新基建与产业现代化</div>
+                        </div>
+                        <div class="pyramid-level">
+                            <div class="pyramid-block">理论层：信息理论与数字中国战略</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="simple-explanation">
+                    <h4>逻辑关系说明</h4>
+                    <p>本章知识体系呈现三层递进结构：理论层提供基础支撑，实践层搭建应用框架，应用层展示发展趋势。各层之间相互依存，共同构成完整的信息化发展知识体系。</p>
+                </div>
+                
+                <div class="knowledge-relation">
+                    <h4>核心概念关联图</h4>
+                    <ul>
+                        <li>信息特征 → 信息系统 → 信息化建设</li>
+                        <li>新基建 → 产业现代化 → 数字经济</li>
+                        <li>两化融合 → 智能制造 → 数字化转型</li>
+                        <li>数字政府 → 数字社会 → 数字生态</li>
+                        <li>数字化转型 → 元宇宙 → 未来发展</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="knowledge-card">
+                <h3 data-icon="📊">重要性分级</h3>
+                
+                <div class="visual-diagram">
+                    <div class="diagram-title">知识点重要性分级体系</div>
+                    <div class="level-display">
+                        <div class="level-item" data-level="★★★">
+                            <h4>核心必考</h4>
+                            <p>信息定义、11个特征、新基建分类、两化融合、数字经济组成</p>
+                        </div>
+                        <div class="level-item" data-level="★★">
+                            <h4>重点掌握</h4>
+                            <p>信息质量属性、传输模型、工业互联网、智能制造、数字政府</p>
+                        </div>
+                        <div class="level-item" data-level="★">
+                            <h4>了解即可</h4>
+                            <p>具体案例、发展趋势、前沿技术、元宇宙应用</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="memory-tool">
+                    <h4>分级记忆策略</h4>
+                    <div class="formula">
+                        ★★★ 概念 → 准确记忆 → 深度理解 → 灵活运用<br>
+                        ★★ 原理 → 理解本质 → 掌握要点 → 应用分析<br>
+                        ★ 案例 → 扩展视野 → 了解趋势 → 知识储备
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 补充内容总结 -->
+        <div class="section">
+            <h2>✅ 补充内容总结</h2>
+            
+            <div class="knowledge-card">
+                <h3 data-icon="📋">本次补充的知识点清单</h3>
+                
+                <div class="simple-explanation">
+                    <h4>简单理解</h4>
+                    <p>本次全面补充了charter1.txt中的所有缺失知识点，确保内容完整性和系统性。同时优化了页面排版，解决了溢出问题。</p>
+                </div>
+                
+                <div class="visual-diagram">
+                    <div class="diagram-title">新增内容一览</div>
+                    <div class="step-layout">
+                        <div class="step-item">
+                            <div class="step-number">✓</div>
+                            <div class="step-content">
+                                <h4>系统的9个特性</h4>
+                                <p>补充了系统的基本特性：整体性、目的性、层次性、相关性、环境适应性、开放性、突变性、自组织性、相似性</p>
+                                <div class="detail">原文档只有信息系统的3个特性，现已补充系统的9个基本特性</div>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">✓</div>
+                            <div class="step-content">
+                                <h4>工业互联网6种典型应用模式</h4>
+                                <p>补充了工业互联网的具体应用：平台化设计、智能化制造、网络化协同、个性化定制、服务化延伸、数字化管理</p>
+                                <div class="detail">原文档缺失工业互联网的具体应用模式，现已全面补充</div>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">✓</div>
+                            <div class="step-content">
+                                <h4>国家信息化体系6要素</h4>
+                                <p>补充了国家信息化体系的详细构成：信息资源、信息网络、信息技术应用、信息技术和产业、信息化人才、政策法规和标准规范</p>
+                                <div class="detail">原文档只是简单提及，现已详细说明各要素的作用和关系</div>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">✓</div>
+                            <div class="step-content">
+                                <h4>数字政府7个能力体系</h4>
+                                <p>补充了数字政府的详细能力构成：经济调节、市场监管、社会管理、公共服务、生态环境保护、政务运行、政务公开</p>
+                                <div class="detail">原文档没有详细列出，现已全面展示数字政府的能力框架</div>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">✓</div>
+                            <div class="step-content">
+                                <h4>智慧城市基本原理和5个核心能力要素</h4>
+                                <p>补充了智慧城市的基本原理和核心能力：数据治理、数字孪生、边际决策、多元融合、态势感知</p>
+                                <div class="detail">原文档只是概括介绍，现已详细说明基本原理和核心能力要素</div>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">✓</div>
+                            <div class="step-content">
+                                <h4>数字化转型基本原理</h4>
+                                <p>补充了数字化转型的核心原理：价值导向、数据驱动、平台化思维、生态化发展、敏捷迭代、以人为本</p>
+                                <div class="detail">原文档只有驱动因素和模型，现已补充详细的基本原理</div>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">✓</div>
+                            <div class="step-content">
+                                <h4>服务现代化3种融合形态</h4>
+                                <p>补充了服务现代化的具体融合形态：结合型融合、绑定型融合、延伸型融合</p>
+                                <div class="detail">原文档缺少详细内容，现已补充3种具体融合形态的特征和应用</div>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">✓</div>
+                            <div class="step-content">
+                                <h4>数字营商环境和网络安全保护体系</h4>
+                                <p>补充了数字营商环境的四大支撑和网络安全保护体系的五要素</p>
+                                <div class="detail">补充了原文档中的其他重要内容，形成完整知识体系</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="memory-tool">
+                    <h4>页面优化总结</h4>
+                    <div class="formula">
+                        ✅ 解决了页面溢出问题<br>
+                        ✅ 优化了响应式设计<br>
+                        ✅ 改进了字体和间距<br>
+                        ✅ 增强了移动端适配<br>
+                        ✅ 完善了知识点体系
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 总结 -->
+        <div class="section">
+            <h2>📝 全章总结</h2>
+            
+            <div class="knowledge-card">
+                <h3 data-icon="🎯">知识体系逻辑</h3>
+                
+                <div class="simple-explanation">
+                    <h4>简单理解</h4>
+                    <p>本章围绕"信息化发展"主线，从基础概念到应用实践，从传统信息化到数字化转型，形成了完整的知识体系。</p>
+                </div>
+                
+                <div class="visual-diagram">
+                    <div class="diagram-title">第1章知识体系结构</div>
+                    <div class="pyramid">
+                        <div class="pyramid-level">
+                            <div class="pyramid-block">信息化发展</div>
+                        </div>
+                        <div class="pyramid-level">
+                            <div class="pyramid-block">基础理论</div>
+                            <div class="pyramid-block">应用实践</div>
+                        </div>
+                        <div class="pyramid-level">
+                            <div class="pyramid-block">信息与信息化</div>
+                            <div class="pyramid-block">现代化基础设施</div>
+                            <div class="pyramid-block">产业现代化</div>
+                            <div class="pyramid-block">数字中国</div>
+                            <div class="pyramid-block">数字化转型</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="memory-tool">
+                    <h4>全章记忆公式</h4>
+                    <div class="formula">
+                        信息特征十一项，质量属性要记清<br>
+                        传输模型五步骤，系统性质五要素<br>
+                        新基建设三大类，工业互联四层楼<br>
+                        产业现代化转型，数字中国建生态<br>
+                        转型元宇宙未来，知识体系要牢记
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function toggleQuestion(element) {
+            element.classList.toggle('active');
+        }
+        
+
+        
+        // 知识地图节点详情
+        function showNodeDetails(nodeName) {
+            const details = {
+                '信息理论': {
+                    title: '信息理论',
+                    content: '包含信息定义、特征、质量属性、传输模型等核心概念',
+                    keywords: ['香农信息论', '信息熵', '信息传输', '信息系统']
+                },
+                '新基建': {
+                    title: '新型基础设施',
+                    content: '包含信息基础设施、融合基础设施、创新基础设施三大类',
+                    keywords: ['5G', '人工智能', '工业互联网', '数据中心']
+                },
+                '产业现代化': {
+                    title: '产业现代化',
+                    content: '农业现代化、工业现代化、服务业现代化的数字化转型',
+                    keywords: ['智慧农业', '智能制造', '两化融合', '数字服务']
+                },
+                '数字中国': {
+                    title: '数字中国',
+                    content: '数字经济、数字政府、数字社会、数字生态的全面建设',
+                    keywords: ['数字经济', '数字政府', '智慧城市', '数字素养']
+                },
+                '数字化转型': {
+                    title: '数字化转型',
+                    content: '企业和组织的数字化转型路径和方法',
+                    keywords: ['S8D模型', '数字化战略', '组织变革', '数字能力']
+                },
+                '元宇宙': {
+                    title: '元宇宙',
+                    content: '虚拟现实与现实世界深度融合的未来形态',
+                    keywords: ['沉浸性', '社交性', '开放性', '永续性']
+                }
+            };
+            
+            const detail = details[nodeName];
+            if (detail) {
+                alert(`${detail.title}\n\n${detail.content}\n\n关键词：${detail.keywords.join(', ')}`);
+            }
+        }
+        
+        // 知识点关联跳转
+        function scrollToKnowledge(knowledgeName) {
+            const knowledgeMap = {
+                '信息特征': 'section-1-1',
+                '信息质量': 'section-1-1',
+                '信息传输': 'section-1-1',
+                '信息系统': 'section-1-1',
+                '新基建': 'section-1-2',
+                '工业互联网': 'section-1-2',
+                '产业现代化': 'section-1-3',
+                '数字中国': 'section-1-4',
+                '数字化转型': 'section-1-5'
+            };
+            
+            const sectionId = knowledgeMap[knowledgeName];
+            if (sectionId) {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        }
+        
+
+        
+        // 添加滚动动画
+        window.addEventListener('scroll', function() {
+            const elements = document.querySelectorAll('.knowledge-card');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+            
+
+        });
+        
+        // 初始化动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.knowledge-card');
+            elements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+            
+
+        });
+        
+
+    </script>
+</body>
+</html>
